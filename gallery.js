@@ -183,16 +183,6 @@ var GALLERY_IMAGES = [
 {id:"go12zWN",src:"https://i.imgur.com/go12zWNl.jpg",fullSrc:"https://i.imgur.com/go12zWN",category:"artwork",label:"Artwork"},
 {id:"IgysOkY",src:"https://i.imgur.com/IgysOkYl.jpg",fullSrc:"https://i.imgur.com/IgysOkY",category:"artwork",label:"Artwork"},
 
-{id:"ba6XOpp",src:"https://i.imgur.com/ba6XOppl.jpg",fullSrc:"https://i.imgur.com/ba6XOpp",category:"jb-sketches",label:"Jeremy Burke Sketches"},
-{id:"VrnG1VU",src:"https://i.imgur.com/VrnG1VUl.jpg",fullSrc:"https://i.imgur.com/VrnG1VU",category:"jb-sketches",label:"Jeremy Burke Sketches"},
-{id:"2Zq2sZO",src:"https://i.imgur.com/2Zq2sZOl.jpg",fullSrc:"https://i.imgur.com/2Zq2sZO",category:"jb-sketches",label:"Jeremy Burke Sketches"},
-{id:"lYt7YvA",src:"https://i.imgur.com/lYt7YvAl.jpg",fullSrc:"https://i.imgur.com/lYt7YvA",category:"jb-sketches",label:"Jeremy Burke Sketches"},
-{id:"tcXRnPU",src:"https://i.imgur.com/tcXRnPUl.jpg",fullSrc:"https://i.imgur.com/tcXRnPU",category:"jb-sketches",label:"Jeremy Burke Sketches"},
-{id:"U6cP3qL",src:"https://i.imgur.com/U6cP3qLl.jpg",fullSrc:"https://i.imgur.com/U6cP3qL",category:"jb-sketches",label:"Jeremy Burke Sketches"},
-{id:"aa5ESSJ",src:"https://i.imgur.com/aa5ESSJl.jpg",fullSrc:"https://i.imgur.com/aa5ESSJ",category:"jb-sketches",label:"Jeremy Burke Sketches"},
-{id:"j5TsvXL",src:"https://i.imgur.com/j5TsvXLl.jpg",fullSrc:"https://i.imgur.com/j5TsvXL",category:"jb-sketches",label:"Jeremy Burke Sketches"},
-
-
 {id:"1jRFIri",src:"https://i.imgur.com/1jRFIril.jpg",fullSrc:"https://i.imgur.com/1jRFIri",category:"my-creations",label:"My Creations"},
 {id:"h8KaxVA",src:"https://i.imgur.com/h8KaxVAl.jpg",fullSrc:"https://i.imgur.com/h8KaxVA",category:"my-creations",label:"My Creations"},
 {id:"5xXUW4u",src:"https://i.imgur.com/5xXUW4ul.jpg",fullSrc:"https://i.imgur.com/5xXUW4u",category:"my-creations",label:"My Creations"},
