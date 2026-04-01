@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SunnySkyesS — Amber's Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
   <script src="gallery.js"></script>
   <script>
@@ -14,28 +14,62 @@
         extend: {
           colors: {
             bb: {
-              black: '#050505',
-              dark: '#0a0a0a',
-              panel: '#141414',
-              red: '#CC2222',
-              reddim: '#8B0000',
-              redlight: '#E83838',
-              border: '#252525'
+              black: '#0a0908',
+              dark: '#161010',
+              panel: '#e8e3d7',
+              green: '#a83232',
+              greendim: '#6b2020',
+              red: '#d44638',
+              reddim: '#5c2820',
+              gold: '#c9923b',
+              goldbright: '#e0b04a',
+              cream: '#f2ede3',
+              border: '#c9c3b5',
+              text: '#1a1612',
+              mid: '#8a8478',
+              light: '#c9c3b5'
             }
           },
           fontFamily: {
-            sans: ['Inter', 'sans-serif'],
             serif: ['Playfair Display', 'serif'],
+            body: ['Lora', 'Georgia', 'serif'],
           },
         }
       }
     }
   </script>
   <style>
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: #050505; }
-    ::-webkit-scrollbar-thumb { background: #252525; border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: #CC2222; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #161010; }
+    ::-webkit-scrollbar-thumb { background: #5c2820; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #a83232; }
+
+    .plaid-bg {
+      background-color: #0f0a0a;
+      background-image:
+        linear-gradient(0deg, rgba(139,58,44,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139,58,44,0.04) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(139,58,44,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139,58,44,0.07) 1px, transparent 1px);
+      background-size: 30px 30px, 30px 30px, 60px 60px, 60px 60px;
+    }
+    .plaid-hero {
+      background-image:
+        linear-gradient(0deg, rgba(139,58,44,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139,58,44,0.025) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(139,58,44,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139,58,44,0.04) 1px, transparent 1px);
+      background-size: 44px 44px, 44px 44px, 88px 88px, 88px 88px;
+    }
+    .plaid-strip {
+      background-color: #150c0c;
+      background-image:
+        linear-gradient(0deg, rgba(139,58,44,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139,58,44,0.1) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(139,58,44,0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139,58,44,0.18) 1px, transparent 1px);
+      background-size: 12px 12px, 12px 12px, 24px 24px, 24px 24px;
+    }
 
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(20px); }
@@ -49,9 +83,9 @@
       0% { background-position: -200% center; }
       100% { background-position: 200% center; }
     }
-    @keyframes pulse-red {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(204,34,34,0.4); }
-      50% { box-shadow: 0 0 20px 5px rgba(204,34,34,0.15); }
+    @keyframes pulse-accent {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(168,50,50,0.35); }
+      50% { box-shadow: 0 0 20px 5px rgba(168,50,50,0.12); }
     }
 
     .anim { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
@@ -60,75 +94,32 @@
     .d3 { animation-delay: 0.5s; }
     .d4 { animation-delay: 0.7s; }
     .anim-float { animation: float 5s ease-in-out infinite; }
+    .animate-pulse-accent { animation: pulse-accent 2.5s ease-in-out infinite; }
 
     .shimmer-text {
-      background: linear-gradient(90deg, #CC2222 0%, #E83838 30%, #CC2222 60%, #E83838 100%);
+      background: linear-gradient(90deg, #8b3a2c 0%, #c9923b 35%, #d44638 65%, #e0b04a 100%);
       background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: shimmer 5s linear infinite;
     }
 
-    .hero-grad { background: linear-gradient(to top, #050505 0%, rgba(5,5,5,0.5) 50%, transparent 100%); }
-
     .nav-link { position: relative; }
     .nav-link::after {
       content: ''; position: absolute; bottom: -3px; left: 0;
-      width: 0; height: 1px; background: #CC2222;
+      width: 0; height: 1px; background: #a83232;
       transition: width 0.3s ease;
     }
     .nav-link:hover::after { width: 100%; }
+    .nav-link.active::after { width: 100%; background: #a83232; }
 
-    /* PLAID PATTERNS */
-    .plaid-subtle {
-      background-color: transparent;
-      background-image:
-        linear-gradient(0deg, transparent 43%, rgba(204,34,34,0.06) 43%, rgba(204,34,34,0.06) 57%, transparent 57%),
-        linear-gradient(90deg, transparent 43%, rgba(204,34,34,0.06) 43%, rgba(204,34,34,0.06) 57%, transparent 57%),
-        linear-gradient(0deg, transparent 48%, rgba(204,34,34,0.04) 48%, rgba(204,34,34,0.04) 52%, transparent 52%),
-        linear-gradient(90deg, transparent 48%, rgba(204,34,34,0.04) 48%, rgba(204,34,34,0.04) 52%, transparent 52%),
-        linear-gradient(45deg, transparent 46%, rgba(139,0,0,0.05) 46%, rgba(139,0,0,0.05) 54%, transparent 54%),
-        linear-gradient(-45deg, transparent 46%, rgba(139,0,0,0.05) 46%, rgba(139,0,0,0.05) 54%, transparent 54%);
-      background-size: 56px 56px;
+    .paper-grain {
+      position: relative;
     }
-    .plaid-medium {
-      background-color: transparent;
-      background-image:
-        linear-gradient(0deg, transparent 40%, rgba(204,34,34,0.12) 40%, rgba(204,34,34,0.12) 60%, transparent 60%),
-        linear-gradient(90deg, transparent 40%, rgba(204,34,34,0.12) 40%, rgba(204,34,34,0.12) 60%, transparent 60%),
-        linear-gradient(0deg, transparent 47%, rgba(204,34,34,0.06) 47%, rgba(204,34,34,0.06) 53%, transparent 53%),
-        linear-gradient(90deg, transparent 47%, rgba(204,34,34,0.06) 47%, rgba(204,34,34,0.06) 53%, transparent 53%),
-        linear-gradient(45deg, transparent 44%, rgba(139,0,0,0.08) 44%, rgba(139,0,0,0.08) 56%, transparent 56%),
-        linear-gradient(-45deg, transparent 44%, rgba(139,0,0,0.08) 44%, rgba(139,0,0,0.08) 56%, transparent 56%);
-      background-size: 56px 56px;
-    }
-    .plaid-strong {
-      background-color: rgba(5,5,5,0.6);
-      background-image:
-        linear-gradient(0deg, transparent 38%, rgba(204,34,34,0.2) 38%, rgba(204,34,34,0.2) 62%, transparent 62%),
-        linear-gradient(90deg, transparent 38%, rgba(204,34,34,0.2) 38%, rgba(204,34,34,0.2) 62%, transparent 62%),
-        linear-gradient(0deg, transparent 46%, rgba(204,34,34,0.1) 46%, rgba(204,34,34,0.1) 54%, transparent 54%),
-        linear-gradient(90deg, transparent 46%, rgba(204,34,34,0.1) 46%, rgba(204,34,34,0.1) 54%, transparent 54%),
-        linear-gradient(45deg, transparent 42%, rgba(139,0,0,0.12) 42%, rgba(139,0,0,0.12) 58%, transparent 58%),
-        linear-gradient(-45deg, transparent 42%, rgba(139,0,0,0.12) 42%, rgba(139,0,0,0.12) 58%, transparent 58%);
-      background-size: 56px 56px;
-    }
-
-    .plaid-stripe {
-      height: 4px;
-      background-image:
-        linear-gradient(90deg, #CC2222 0%, #CC2222 25%, #050505 25%, #050505 50%, #CC2222 50%, #CC2222 75%, #050505 75%);
-      background-size: 200% 100%;
-    }
-    .plaid-stripe-thin {
-      height: 2px;
-      background-image:
-        linear-gradient(90deg, #CC2222 0%, #CC2222 25%, transparent 25%, transparent 50%, #CC2222 50%, #CC2222 75%, transparent 75%);
-      background-size: 200% 100%;
-    }
-
-    .card-overlay {
-      background: linear-gradient(to top, rgba(5,5,5,0.9) 0%, rgba(5,5,5,0.3) 60%, transparent 100%);
+    .paper-grain::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      opacity: 0.04;
     }
 
     .scroll-reveal {
@@ -149,132 +140,124 @@
     .masonry-item:hover .item-overlay { opacity: 1; }
 
     .cat-btn { transition: all 0.25s ease; }
-    .cat-btn.active {
-      background: rgba(204,34,34,0.12);
-      color: #CC2222;
-      border-color: rgba(204,34,34,0.25);
-    }
-    .cat-btn .cat-count { opacity: 0.4; transition: opacity 0.25s; }
-    .cat-btn.active .cat-count { opacity: 0.7; }
+    .cat-btn.active { background: rgba(168,50,50,0.1); color: #a83232; border-color: rgba(168,50,50,0.25); }
+    .cat-btn .cat-count { opacity: 0.4; transition: opacity:0.25s; }
+    .cat-btn.active .cat-count { opacity: 0.6; }
 
     .mobile-menu {
       transform: translateX(100%);
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .mobile-menu.open { transform: translateX(0); }
-
     .lightbox { opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
     .lightbox.active { opacity: 1; pointer-events: all; }
-
     .toast {
       transform: translateY(80px); opacity: 0;
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .toast.show { transform: translateY(0); opacity: 1; }
-
     html { scroll-behavior: smooth; }
     .cursor-glow {
       pointer-events: none; position: fixed;
       width: 280px; height: 280px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(204,34,34,0.05) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(168,50,50,0.04) 0%, transparent 70%);
       transform: translate(-50%, -50%); z-index: 0;
     }
   </style>
 </head>
-<body class="bg-bb-black text-white font-sans antialiased overflow-x-hidden">
+<body class="font-body text-bb-text antialiased overflow-x-hidden" style="background: #0f0a0a;">
 
   <div class="cursor-glow hidden lg:block" id="cursorGlow"></div>
 
   <!-- Nav -->
-  <nav class="fixed top-0 left-0 right-0 z-50 h-16 flex items-center px-6" style="background: rgba(5,5,5,0.8); backdrop-filter: blur(12px);">
+  <nav class="fixed top-0 left-0 right-0 z-50 h-16 flex items-center px-6" style="background: rgba(10,5,5,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(139,58,44,0.1);">
     <div class="max-w-6xl mx-auto w-full flex items-center justify-between">
       <a href="#hero" class="flex items-center gap-2.5">
-        <div class="w-7 h-7 rounded-full border border-bb-red/40 flex items-center justify-center bg-bb-reddim/20">
-          <span class="font-serif text-bb-red text-[11px] font-semibold">A</span>
+        <div class="w-7 h-7 rounded-full bg-bb-reddim/30 border border-bb-green/30 flex items-center justify-center">
+          <span class="font-serif text-bb-green text-[11px] font-semibold">A</span>
         </div>
-        <span class="text-xs font-medium tracking-wider text-neutral-300">SunnySkyesS</span>
+        <span class="text-xs font-medium tracking-wider text-bb-light">SunnySkyesS</span>
       </a>
       <div class="hidden md:flex items-center gap-7">
-        <a href="#about" class="nav-link text-[11px] font-medium tracking-widest uppercase text-neutral-500 hover:text-white transition-colors">About</a>
-        <a href="#work" class="nav-link text-[11px] font-medium tracking-widest uppercase text-neutral-500 hover:text-white transition-colors">Work</a>
-        <a href="#contact" class="nav-link text-[11px] font-medium tracking-widest uppercase text-neutral-500 hover:text-white transition-colors">Contact</a>
+        <a href="#about" class="nav-link text-[11px] font-medium tracking-widest uppercase text-bb-mid hover:text-bb-light transition-colors">About</a>
+        <a href="#work" class="nav-link active text-[11px] font-medium tracking-widest uppercase text-bb-light hover:text-bb-light transition-colors">Work</a>
+        <a href="#contact" class="nav-link text-[11px] font-medium tracking-widest uppercase text-bb-mid hover:text-bb-light transition-colors">Contact</a>
       </div>
       <button id="menuToggle" class="md:hidden w-9 h-9 flex flex-col items-center justify-center gap-1.5">
-        <span class="w-5 h-px bg-white transition-all duration-300" id="l1"></span>
-        <span class="w-3.5 h-px bg-white transition-all duration-300" id="l2"></span>
-        <span class="w-5 h-px bg-white transition-all duration-300" id="l3"></span>
+        <span class="w-5 h-px bg-bb-light transition-all duration-300" id="l1"></span>
+        <span class="w-3.5 h-px bg-bb-light transition-all duration-300" id="l2"></span>
+        <span class="w-5 h-px bg-bb-light transition-all duration-300" id="l3"></span>
       </button>
     </div>
   </nav>
-  <div class="plaid-stin fixed top-16 left-0 right-0 z-40"></div>
 
   <!-- Mobile Menu -->
-  <div class="mobile-menu fixed inset-0 z-40 bg-bb-black/98 flex flex-col items-center justify-center gap-7" id="mobileMenu">
-    <a href="#about" class="text-xl font-light text-neutral-400 hover:text-bb-red transition-colors mlink">About</a>
-    <a href="#work" class="text-xl font-light text-neutral-400 hover:text-bb-red transition-colors mlink">Work</a>
-    <a href="#contact" class="text-xl font-light text-neutral-400 hover:text-bb-red transition-colors mlink">Contact</a>
+  <div class="mobile-menu fixed inset-0 z-40 flex flex-col items-center justify-center gap-7 plaid-bg" id="mobileMenu" style="background: rgba(10,5,5,0.98); backdrop-filter: blur(20px);">
+    <a href="#about" class="text-xl font-serif italic text-bb-mid hover:text-bb-light transition-colors mlink">About</a>
+    <a href="#work" class="text-xl font-serif italic text-bb-mid hover:text-bb-light transition-colors mlink">Work</a>
+    <a href="#contact" class="text-xl font-serif italic text-bb-mid hover:text-bb-light transition-colors mlink">Contact</a>
   </div>
 
   <!-- Hero -->
   <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0">
-      <img src="https://picsum.photos/seed/beaverbank-hero/1920/1080.jpg" alt="" class="w-full h-full object-cover opacity-40 scale-105">
-      <div class="hero-grad absolute inset-0"></div>
-      <div class="plaid-medium absolute inset-0"></div>
-      <div class="absolute inset-0" style="background: radial-gradient(ellipse at 50% 45%, rgba(204,34,34,0.08) 0%, transparent 55%);"></div>
-    </div>
+    <div class="absolute inset-0" style="background: linear-gradient(to top, #1a0808 0%, rgba(22,10,10,0.85) 35%, rgba(15,10,8,0.7) 70%, rgba(10,5,5,0.5) 100%);"></div>
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse at 50% 55%, rgba(139,58,44,0.12) 0%, transparent 55%);"></div>
+    <div class="absolute inset-0 plaid-hero"></div>
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, transparent 35%, rgba(10,5,5,0.5) 100%); pointer-events: none;"></div>
+
     <div class="relative z-10 text-center px-6">
-      <p class="anim text-[10px] font-medium tracking-[0.3em] uppercase text-bb-red/60 mb-5 border border-bb-red/20 px-4 py-1.5 rounded-full bg-bb-black/50 backdrop-blur-sm">Beaver Bank NS · Creative Portfolio</p>
+      <p class="anim text-[11px] font-medium tracking-[0.3em] uppercase text-white mb-5 border border-white/20 px-5 py-1.5 rounded-full bg-black/40 backdrop-blur-sm" style="text-shadow: 0 1px 3px rgba(0,0,0,0.4);">Beaver Banker stuck in Edmonton — send Timbits</p>
       <h1 class="anim d1">
-        <span class="block font-serif text-5xl md:text-7xl lg:text-[5.5rem] tracking-tight leading-[1.05] text-white">Hi, I'm</span>
-        <span class="block font-serif text-5xl md:text-7xl lg:text-[5.5rem] tracking-tight leading-[1.05] shimmer-text mt-1">Amber</span>
+        <span class="block font-serif text-6xl md:text-8xl lg:text-[6.5rem] tracking-tight leading-[1.05] text-white" style="text-shadow: 0 4px 12px rgba(0,0,0,0.4);">Hi, I'm</span>
+        <span class="block font-serif text-6xl md:text-8xl lg:text-[6.5rem] tracking-tight leading-[1.05] shimmer-text mt-1">Amber</span>
       </h1>
-      <p class="anim d2 mt-5 text-sm font-light text-neutral-400 max-w-md mx-auto leading-relaxed">
+      <p class="anim d2 mt-5 text-base md:text-lg font-light text-white/60 max-w-md mx-auto leading-relaxed">
         I make things that look nice and feel right. All for free, always.
       </p>
       <div class="anim d3 mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#work" class="px-7 py-3 bg-bb-red text-white text-[11px] font-semibold tracking-widest uppercase rounded-sm hover:bg-bb-redlight transition-colors duration-150 animate-pulse-red">
+        <a href="#work" class="px-7 py-3 bg-bb-green text-white text-[11px] font-semibold tracking-widest uppercase rounded-[4px] hover:bg-bb-green/80 transition-colors duration-150 animate-pulse-accent">
           See My Work
         </a>
-        <a href="#about" class="px-7 py-3 border border-white/20 text-white text-[11px] font-semibold tracking-widest uppercase rounded-sm hover:border-bb-red/50 hover:text-bb-red transition-all duration-300">
-          Learn More
-        </a>
+        <a href="#about" class="px-7 py-3 border border-white/20 text-white/80 text-[11px] font-semibold tracking-widest uppercase rounded-[4px] hover:border-bb-green/60 hover:text-white transition-all duration-300">Learn More</a>
       </div>
     </div>
     <div class="anim d4 absolute bottom-7 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5">
-      <span class="text-[9px] tracking-[0.2em] uppercase text-neutral-600">Scroll</span>
-      <div class="w-px h-7 bg-gradient-to-b from-bb-red/40 to-transparent"></div>
+      <span class="text-[9px] tracking-[0.2em] uppercase text-white/40">Scroll</span>
+      <div class="w-px h-7 bg-gradient-to-b from-bb-green/40 to-transparent"></div>
     </div>
   </section>
 
+  <!-- Plaid divider -->
+  <div class="plaid-strip" style="height: 20px;"></div>
+
   <!-- About -->
-  <section id="about" class="py-20 md:py-28 plaid-subtle">
+  <section id="about" class="py-20 md:py-28 paper-grain bg-bb-cream">
     <div class="max-w-5xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-14 items-center">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-14 items-start">
         <div class="md:col-span-2 scroll-reveal relative">
-          <img src="https://picsum.photos/seed/beaverbank-portrait/600/750.jpg" alt="Amber" class="w-full h-[380px] md:h-[440px] object-cover rounded-sm">
-          <div class="absolute -bottom-4 -right-4 bg-bb-panel border border-bb-border rounded-sm px-4 py-3 anim-float">
-            <span class="block text-lg font-serif text-bb-red leading-none">20+</span>
-            <span class="text-[9px] tracking-[0.15em] uppercase text-neutral-500">Years</span>
+          <img src="https://z-cdn-media.chatglm.cn/files/ed3560cb-34dd-4d8b-aea2-51f02a6e8108.jpg?auth_key=1875065280-6ca687fc9e6f41cca16fce94c6e45f71-0-f0203cd6bd6a1ee63708d2f64a3afa5e" alt="Amber" class="w-full h-[380px] md:h-[440px] object-cover rounded-[4px]" style="box-shadow: 0 8px 30px rgba(0,0,0,0.2);">
+          <div class="absolute -bottom-4 -right-4 bg-bb-panel border border-bb-border rounded-[4px] px-4 py-3 anim-float" style="box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+            <span class="block text-lg font-serif text-bb-green leading-none">20+</span>
+            <span class="text-[9px] tracking-[0.15em] uppercase text-bb-mid">Years</span>
           </div>
         </div>
         <div class="md:col-span-3 scroll-reveal">
-          <p class="text-[10px] font-medium tracking-[0.25em] uppercase text-bb-red/60 mb-3">About Me</p>
-          <h2 class="font-serif text-2xl md:text-3xl tracking-tight text-white mb-4">
-            Beaver Banker at heart,<br>creative by <span class="italic text-bb-red">nature</span>
+          <p class="text-[10px] font-medium tracking-[0.25em] uppercase text-bb-greendim mb-3">About Me</p>
+          <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-tight text-bb-text mb-4" style="text-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+            Beaver Banker at heart,<br>creative by <span class="italic text-bb-green">nature</span>
           </h2>
-          <div class="w-10 h-px mb-6" style="background: linear-gradient(to right, #CC2222, transparent);"></div>
-          <p class="text-sm font-light text-neutral-400 leading-relaxed mb-4">
+          <div class="w-10 h-px mb-6" style="background: linear-gradient(to right, #a83232, transparent);"></div>
+          <p class="text-sm font-medium text-bb-text leading-relaxed mb-4">
             I'm Amber — the person behind SunnySkyesS. I create images, edit photos, and bring ideas to life. Not because I'm paid to, but because I genuinely love doing it.
           </p>
-          <p class="text-sm font-light text-neutral-400 leading-relaxed mb-6">
+          <p class="text-sm font-light text-bb-mid leading-relaxed mb-6">
             Everything here is free. I believe creativity shouldn't have a price tag when it comes from the heart. If you need something made, just ask. ☀️
           </p>
           <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 text-[9px] tracking-wider uppercase text-neutral-500 border border-bb-border rounded-full hover:border-bb-red/30 hover:text-bb-red transition-colors cursor-default">AI Generated Images</span>
-            <span class="px-3 py-1 text-[9px] tracking-wider uppercase text-neutral-500 border border-bb-border rounded-full hover:border-bb-red/30 hover:text-bb-red transition-colors cursor-default">Photoshop</span>
-            <span class="px-3 py-1 text-[9px] tracking-wider uppercase text-neutral-500 border border-bb-border rounded-full hover:border-bb-red/30 hover:text-bb-red transition-colors cursor-default">Lightroom</span>
-            <span class="px-3 py-1 text-[9px] tracking-wider uppercase text-neutral-500 border border-bb-border rounded-full hover:border-bb-red/30 hover:text-bb-red transition-colors cursor-default">Skylum Neo</span>
+            <span class="px-3 py-1 text-[9px] tracking-wider uppercase text-bb-mid border border-bb-border rounded-[4px] hover:border-bb-green/30 hover:text-bb-green transition-colors cursor-default">AI Generated Images</span>
+            <span class="px-3 py-1 text-[9px] tracking-wider uppercase text-bb-mid border border-bb-border rounded-[4px] hover:border-bb-green/30 hover:text-bb-green transition-colors cursor-default">Photoshop</span>
+            <span class="px-3 py-1 text-[9px] tracking-wider uppercase text-bb-mid border border-bb-border rounded-[4px] hover:border-bb-green/30 hover:text-bb-green transition-colors cursor-default">Lightroom</span>
+            <span class="px-3 py-1 text-[9px] tracking-wider uppercase text-bb-mid border border-bb-border rounded-[4px] hover:border-bb-green/30 hover:text-bb-green transition-colors cursor-default">Skylum Neo</span>
           </div>
         </div>
       </div>
@@ -282,129 +265,123 @@
   </section>
 
   <!-- Plaid divider -->
-  <div class="plaid-stripe"></div>
+  <div class="plaid-strip" style="height: 20px;"></div>
 
   <!-- Gallery -->
-  <section id="work" class="py-20 md:py-28 plaid-subtle">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-10 scroll-reveal">
-        <p class="text-[10px] font-medium tracking-[0.25em] uppercase text-bb-red/60 mb-3">Portfolio</p>
-        <h2 class="font-serif text-2xl md:text-3xl tracking-tight text-white">Things I've made</h2>
+  <section id="work" class="py-20 md:py-28 plaid-bg relative">
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="text-left mb-10 scroll-reveal">
+        <p class="text-[10px] font-medium tracking-[0.25em] uppercase text-bb-green mb-3">Portfolio</p>
+        <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-tight text-white mb-4">Things I've made</h2>
+        <div class="w-10 h-px" style="background: linear-gradient(to right, #a83232, transparent);"></div>
       </div>
-      <div class="flex flex-wrap justify-center gap-2 mb-6 scroll-reveal">
-        <button class="cat-btn active px-5 py-2 text-[10px] tracking-[0.15em] uppercase font-semibold border border-bb-border rounded-full" data-cat="all" onclick="filterCat('all')">All <span class="cat-count ml-1" id="countAll"></span></button>
-        <button class="cat-btn px-5 py-2 text-[10px] tracking-[0.15em] uppercase font-semibold text-neutral-500 border border-bb-border rounded-full hover:text-bb-red hover:border-bb-red/20" data-cat="ai-art" onclick="filterCat('ai-art')">AI Art <span class="cat-count ml-1" id="countAiArt"></span></button>
-        <button class="cat-btn px-5 py-2 text-[10px] tracking-[0.15em] uppercase font-semibold text-neutral-500 border border-bb-border rounded-full hover:text-bb-red hover:border-bb-red/20" data-cat="artwork" onclick="filterCat('artwork')">Artwork <span class="cat-count ml-1" id="countArtwork"></span></button>
-        <button class="cat-btn px-5 py-2 text-[10px] tracking-[0.15em] uppercase font-semibold text-neutral-500 border border-bb-border rounded-full hover:text-bb-red hover:border-bb-red/20" data-cat="jb-sketches" onclick="filterCat('jb-sketches')">Jeremy Burke Sketches <span class="cat-count ml-1" id="countJbSketches"></span></button>
-        <button class="cat-btn px-5 py-2 text-[10px] tracking-[0.15em] uppercase font-semibold text-neutral-500 border border-bb-border rounded-full hover:text-bb-red hover:border-bb-red/20" data-cat="my-creations" onclick="filterCat('my-creations')">My Creations <span class="cat-count ml-1" id="countMyCreations"></span></button>
-        <button class="cat-btn px-5 py-2 text-[10px] tracking-[0.15em] uppercase font-semibold text-neutral-500 border border-bb-border rounded-full hover:text-bb-red hover:border-bb-red/20" data-cat="photography" onclick="filterCat('photography')">Photography <span class="cat-count ml-1" id="countPhotography"></span></button>
+      <div class="flex flex-wrap gap-2 mb-6 scroll-reveal">
+        <button class="cat-btn active px-5 py-2 text-[10px] tracking-[0.15em] uppercase font-semibold border border-white/10 rounded-[4px]" data-cat="all" onclick="filterCat('all')">All <span class="cat-count ml-1" id="countAll"></span></button>
+        <button class="cat-btn px-5 py-2 text-[10px] tracking-[0.15em] uppercase font-semibold text-white/50 border border-white/10 rounded-[4px] hover:text-white/80 hover:border-white/20 transition-all duration-300" data-cat="ai-art" onclick="filterCat('ai-art')">AI Art <span class="cat-count ml-1" id="countAiArt"></span></button>
+        <button class="cat-btn px-5 py-2 text-[10px] tracking-[0.15em] uppercase font-semibold text-white/50 border border-white/10 rounded-[4px] hover:text-white/80 hover:border-white/20 transition-all duration-300" data-cat="artwork" onclick="filterCat('artwork')">Artwork <span class="cat-count ml-1" id="countArtwork"></span></button>
+        <button class="cat-btn px-5 py-2 text-[10px] tracking-[0.15em] uppercase font-semibold text-white/50 border border-white/10 rounded-[4px] hover:text-white/80 hover:border-white/20 transition-all duration-300" data-cat="my-creations" onclick="filterCat('my-creations')">My Creations <span class="cat-count ml-1" id="countMyCreations"></span></button>
+        <button class="cat-btn px-5 py-2 text-[10px] tracking-[0.15em] uppercase font-semibold text-white/50 border border-white/10 rounded-[4px] hover:text-white/80 hover:border-white/20 transition-all duration-300" data-cat="photography" onclick="filterCat('photography')">Photography <span class="cat-count ml-1" id="countPhotography"></span></button>
       </div>
-      <p class="text-center text-[10px] text-neutral-600 mb-8" id="showingCount"></p>
+      <p class="text-[10px] text-white/40 mb-8" id="showingCount"></p>
 
-      <!-- No Data State -->
       <div class="hidden text-center py-16" id="noDataState">
-        <span class="iconify text-neutral-600 mx-auto mb-4" data-icon="lucide:image-off" data-width="32"></span>
-        <p class="text-sm text-neutral-400 mb-2">No images loaded</p>
-        <p class="text-xs text-neutral-600 max-w-md mx-auto">Make sure <strong class="text-neutral-400">gallery.js</strong> is in the same folder as this HTML file and contains your image data.</p>
+        <span class="iconify text-white/30 mx-auto mb-4" data-icon="lucide:image-off" data-width="32"></span>
+        <p class="text-sm text-white/50 mb-2">No images loaded</p>
+        <p class="text-xs text-white/30 max-w-md mx-auto">Make sure <strong class="text-white/60">gallery.js</strong> is in the same folder as this HTML file.</p>
       </div>
 
-      <!-- Masonry Grid -->
       <div class="masonry hidden" id="masonry"></div>
 
-      <!-- Empty Category -->
       <div class="hidden text-center py-16" id="emptyState">
-        <p class="text-sm text-neutral-500">No images in this category.</p>
+        <p class="text-sm text-white/40">No images in this category.</p>
       </div>
 
-      <!-- Load More -->
       <div class="text-center mt-10 hidden" id="loadMoreWrap">
-        <button onclick="loadMore()" id="loadMoreBtn" class="px-8 py-2.5 border border-bb-border text-[10px] tracking-[0.15em] uppercase font-semibold text-neutral-400 rounded-full hover:border-bb-red/30 hover:text-bb-red transition-all duration-300">
-          Load More
-        </button>
+        <button onclick="loadMore()" id="loadMoreBtn" class="px-8 py-2.5 border border-white/10 text-[10px] tracking-[0.15em] uppercase font-semibold text-white/50 rounded-[4px] hover:border-bb-green/40 hover:text-bb-green transition-all duration-300">Load More</button>
       </div>
-
     </div>
   </section>
 
   <!-- Plaid divider -->
-  <div class="plaid-stripe"></div>
+  <div class="plaid-strip" style="height: 20px;"></div>
 
   <!-- Contact -->
-  <section id="contact" class="py-20 md:py-28 plaid-subtle">
+  <section id="contact" class="py-20 md:py-28 paper-grain bg-bb-cream">
     <div class="max-w-2xl mx-auto px-6">
       <div class="text-center mb-12 scroll-reveal">
-        <p class="text-[10px] font-medium tracking-[0.25em] uppercase text-bb-red/60 mb-3">Say Hello</p>
-        <h2 class="font-serif text-2xl md:text-3xl tracking-tight text-white mb-3">Need something made?</h2>
-        <p class="text-sm font-light text-neutral-500">It's free. Just tell me what you're looking for.</p>
+        <p class="text-[10px] font-medium tracking-[0.25em] uppercase text-bb-greendim mb-3">Say Hello</p>
+        <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-tight text-bb-text mb-3" style="text-shadow: 0 1px 2px rgba(0,0,0,0.05);">Need something made?</h2>
+        <p class="text-sm font-light text-bb-mid max-w-md mx-auto">It's free. Just tell me what you're looking for.</p>
       </div>
       <form id="contactForm" class="scroll-reveal space-y-4">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <input type="text" required placeholder="Name" class="w-full bg-bb-panel border border-bb-border rounded-sm px-4 py-3 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-bb-red/40 transition-colors">
-          <input type="email" required placeholder="Email" class="w-full bg-bb-panel border border-bb-border rounded-sm px-4 py-3 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-bb-red/40 transition-colors">
+          <input type="text" required placeholder="Name" class="w-full bg-bb-panel border border-bb-border rounded-[4px] px-4 py-3 text-sm text-bb-text placeholder-bb-mid focus:outline-none focus:border-bb-green/40 transition-colors">
+          <input type="email" required placeholder="Email" class="w-full bg-bb-panel border border-bb-border rounded-[4px] px-4 py-3 text-sm text-bb-text placeholder-bb-mid focus:outline-none focus:border-bb-green/40 transition-colors">
         </div>
-        <select class="w-full bg-bb-panel border border-bb-border rounded-sm px-4 py-3 text-sm text-neutral-500 focus:outline-none focus:border-bb-red/40 transition-colors appearance-none cursor-pointer" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2214%22 height=%2214%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23737373%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22/></svg>'); background-repeat: no-repeat; background-position: right 14px center;">
+        <select class="w-full bg-bb-panel border border-bb-border rounded-[4px] px-4 py-3 text-sm text-bb-mid focus:outline-none focus:border-bb-green/40 transition-colors appearance-none cursor-pointer" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2214%22 height=%2214%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22#8a8478%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22/></svg>'); background-repeat: no-repeat; background-position: right 14px center;">
           <option value="">What do you need?</option>
           <option>AI Generated Image</option>
           <option>Photo Editing</option>
           <option>Something Creative</option>
           <option>Something else</option>
         </select>
-        <textarea required rows="5" placeholder="Tell me about your project..." class="w-full bg-bb-panel border border-bb-border rounded-sm px-4 py-3 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-bb-red/40 transition-colors resize-none"></textarea>
-        <button type="submit" class="w-full py-3 bg-bb-red text-white text-[11px] font-semibold tracking-widest uppercase rounded-sm hover:bg-bb-redlight transition-colors duration-150">Send Message</button>
-        <p class="text-[10px] text-neutral-600 text-center">I'll get back to you soon ☀️</p>
+        <textarea required rows="5" placeholder="Tell me about your project..." class="w-full bg-bb-panel border border-bb-border rounded-[4px] px-4 py-3 text-sm text-bb-text placeholder-bb-mid focus:outline-none focus:border-bb-green/40 transition-colors resize-none"></textarea>
+        <button type="submit" class="w-full py-3 bg-bb-green text-white text-[11px] font-semibold tracking-widest uppercase rounded-[4px] hover:bg-bb-green/80 transition-colors duration-150">Send Message</button>
+        <p class="text-[10px] text-bb-mid text-center">I'll get back to you soon ☀️</p>
       </form>
     </div>
   </section>
 
   <!-- Plaid divider -->
-  <div class="plaid-stripe-thin"></div>
+  <div class="plaid-strip" style="height: 16px;"></div>
 
   <!-- Footer -->
-  <footer class="py-8 plaid-subtle">
-    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+  <footer class="py-8 plaid-bg" style="background-color: #0a0505;">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
       <div class="flex items-center gap-2">
-        <div class="w-5 h-5 rounded-full border border-bb-red/25 flex items-center justify-center bg-bb-reddim/20">
-          <span class="font-serif text-bb-red text-[9px]">A</span>
+        <div class="w-5 h-5 rounded-full bg-bb-reddim/30 border border-bb-green/30 flex items-center justify-center">
+          <span class="font-serif text-bb-green text-[9px]">A</span>
         </div>
-        <span class="text-[11px] text-neutral-500">SunnySkyesS</span>
+        <span class="text-[11px] text-white/40">SunnySkyesS</span>
       </div>
       <div class="flex items-center gap-5">
-        <a href="#" class="text-neutral-600 hover:text-bb-red transition-colors"><span class="iconify" data-icon="lucide:instagram" data-width="15"></span></a>
-        <a href="#" class="text-neutral-600 hover:text-bb-red transition-colors"><span class="iconify" data-icon="lucide:dribbble" data-width="15"></span></a>
-        <a href="#" class="text-neutral-600 hover:text-bb-red transition-colors"><span class="iconify" data-icon="lucide:linkedin" data-width="15"></span></a>
-        <a href="#" class="text-neutral-600 hover:text-bb-red transition-colors"><span class="iconify" data-icon="lucide:mail" data-width="15"></span></a>
+        <a href="#" class="text-white/30 hover:text-bb-green transition-colors"><span class="iconify" data-icon="lucide:instagram" data-width="15"></span></a>
+        <a href="#" class="text-white/30 hover:text-bb-green transition-colors"><span class="iconify" data-icon="lucide:dribbble" data-width="15"></span></a>
+        <a href="#" class="text-white/30 hover:text-bb-green transition-colors"><span class="iconify" data-icon="lucide:linkedin" data-width="15"></span></a>
+        <a href="#" class="text-white/30 hover:text-bb-green transition-colors"><span class="iconify" data-icon="lucide:mail" data-width="15"></span></a>
       </div>
-      <p class="text-[9px] tracking-wider text-neutral-700">© 2025 Amber · Beaver Bank NS, forever in the heart</p>
+      <p class="text-[9px] tracking-wider text-white/25">© 2025 Amber · Beaver Bank NS</p>
     </div>
   </footer>
 
   <!-- Lightbox -->
-  <div class="lightbox fixed inset-0 z-[60] bg-bb-black/95 flex items-center justify-center p-4" id="lightbox" style="backdrop-filter: blur(16px);">
-    <button onclick="closeLB()" class="absolute top-5 right-5 w-9 h-9 rounded-full border border-bb-border flex items-center justify-center text-neutral-400 hover:text-white transition-colors z-10">
+  <div class="lightbox fixed inset-0 z-[60] flex items-center justify-center p-4" id="lightbox" style="background: rgba(10,5,5,0.96); backdrop-filter: blur(16px);">
+    <button onclick="closeLB()" class="absolute top-5 right-5 w-9 h-9 rounded-[4px] border border-white/10 flex items-center justify-center text-white/40 hover:text-white transition-colors z-10">
       <span class="iconify" data-icon="lucide:x" data-width="16"></span>
     </button>
-    <button onclick="prevLB()" class="absolute left-3 md:left-7 w-9 h-9 rounded-full border border-bb-border flex items-center justify-center text-neutral-400 hover:text-white transition-colors z-10">
+    <button onclick="prevLB()" class="absolute left-3 md:left-7 w-9 h-9 rounded-[4px] border border-white/10 flex items-center justify-center text-white/40 hover:text-white transition-colors z-10">
       <span class="iconify" data-icon="lucide:chevron-left" data-width="16"></span>
     </button>
-    <button onclick="nextLB()" class="absolute right-3 md:right-7 w-9 h-9 rounded-full border border-bb-border flex items-center justify-center text-neutral-400 hover:text-white transition-colors z-10">
+    <button onclick="nextLB()" class="absolute right-3 md:right-7 w-9 h-9 rounded-[4px] border border-white/10 flex items-center justify-center text-white/40 hover:text-white transition-colors z-10">
       <span class="iconify" data-icon="lucide:chevron-right" data-width="16"></span>
     </button>
     <div class="max-w-3xl w-full text-center">
-      <img id="lbImg" src="" alt="" class="max-h-[72vh] mx-auto rounded-sm object-contain">
-      <p id="lbCat" class="text-[9px] tracking-[0.2em] uppercase text-bb-red font-medium mt-4"></p>
-      <p id="lbCounter" class="text-[10px] text-neutral-600 mt-1"></p>
+      <img id="lbImg" src="" alt="" class="max-h-[72vh] mx-auto rounded-[4px] object-contain" style="box-shadow: 0 8px 30px rgba(0,0,0,0.3);">
+      <p id="lbCat" class="text-[9px] tracking-[0.2em] uppercase text-bb-green font-medium mt-4"></p>
+      <p id="lbCounter" class="text-[10px] text-white/30 mt-1"></p>
     </div>
   </div>
 
   <!-- Toast -->
-  <div class="toast fixed bottom-5 right-5 z-[70] bg-bb-panel border border-bb-red/25 rounded-sm px-5 py-3 flex items-center gap-2.5" id="toast">
-    <span class="iconify text-bb-red" data-icon="lucide:check-circle" data-width="16"></span>
-    <span class="text-sm text-neutral-200">Sent! Talk soon ☀️</span>
+  <div class="toast fixed bottom-5 right-5 z-[70] rounded-[4px] px-5 py-3 flex items-center gap-2.5" id="toast" style="background: #e8e3d7; border: 1px solid #c9c3b5; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+    <span class="iconify text-bb-green" data-icon="lucide:check-circle" data-width="16"></span>
+    <span class="text-sm text-bb-text">Sent! Talk soon ☀️</span>
   </div>
 
   <script>
     const PER_PAGE = 24;
     let allImages = (typeof GALLERY_IMAGES !== 'undefined' && Array.isArray(GALLERY_IMAGES)) ? GALLERY_IMAGES : [];
+    allImages = allImages.filter(function(i) { return i.category !== 'jb-sketches'; });
     let filteredImages = [];
     let visibleCount = PER_PAGE;
     let currentCategory = 'all';
@@ -412,12 +389,11 @@
     function getFiltered(cat) { return cat === 'all' ? allImages : allImages.filter(i => i.category === cat); }
 
     function updateCounts() {
-      document.getElementById('countAll').textContent = `(${allImages.length})`;
-      document.getElementById('countAiArt').textContent = `(${allImages.filter(i => i.category === 'ai-art').length})`;
-      document.getElementById('countArtwork').textContent = `(${allImages.filter(i => i.category === 'artwork').length})`;
-      document.getElementById('countJbSketches').textContent = `(${allImages.filter(i => i.category === 'jb-sketches').length})`;
-      document.getElementById('countMyCreations').textContent = `(${allImages.filter(i => i.category === 'my-creations').length})`;
-      document.getElementById('countPhotography').textContent = `(${allImages.filter(i => i.category === 'photography').length})`;
+      document.getElementById('countAll').textContent = '(' + allImages.length + ')';
+      document.getElementById('countAiArt').textContent = '(' + allImages.filter(i => i.category === 'ai-art').length + ')';
+      document.getElementById('countArtwork').textContent = '(' + allImages.filter(i => i.category === 'artwork').length + ')';
+      document.getElementById('countMyCreations').textContent = '(' + allImages.filter(i => i.category === 'my-creations').length + ')';
+      document.getElementById('countPhotography').textContent = '(' + allImages.filter(i => i.category === 'photography').length + ')';
     }
 
     function filterCat(cat) {
@@ -433,65 +409,63 @@
       const grid = document.getElementById('masonry');
       const toShow = filteredImages.slice(0, visibleCount);
       const total = filteredImages.length;
-      document.getElementById('showingCount').textContent = total === 0 ? 'No images in this category' : `Showing ${toShow.length} of ${total}`;
+      document.getElementById('showingCount').textContent = total === 0 ? 'No images in this category' : 'Showing ' + toShow.length + ' of ' + total;
       document.getElementById('emptyState').classList.toggle('hidden', total > 0);
       grid.classList.toggle('hidden', total === 0);
-      grid.innerHTML = toShow.map((img, i) => `
-        <div class="masonry-item">
-          <div class="relative overflow-hidden rounded-sm group cursor-pointer bg-bb-panel" onclick="openLB(${i})">
-            <img src="${img.src}" alt="" loading="lazy" class="w-full block" onload="this.classList.add('loaded')" onerror="this.parentElement.parentElement.remove()">
-            <div class="item-overlay absolute inset-0 flex flex-col justify-end p-4" style="background: linear-gradient(to top, rgba(5,5,5,0.8) 0%, transparent 60%);">
-              <span class="text-[8px] tracking-[0.15em] uppercase text-bb-red/70 font-medium">${img.label}</span>
-            </div>
-          </div>
-        </div>
-      `).join('');
-      const wrap = document.getElementById('loadMoreWrap');
+      grid.innerHTML = toShow.map(function(img, i) {
+        return '<div class="masonry-item">' +
+          '<div class="relative overflow-hidden rounded-[4px] group cursor-pointer" onclick="openLB(' + i + ')" style="background: #1a1010; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">' +
+            '<img src="' + img.src + '" alt="" loading="lazy" class="w-full block" onload="this.classList.add(\'loaded\')" onerror="this.parentElement.parentElement.remove()">' +
+            '<div class="item-overlay absolute inset-0 flex flex-col justify-end p-4" style="background: linear-gradient(to top, rgba(10,5,5,0.8) 0%, transparent 60%);">' +
+              '<span class="text-[8px] tracking-[0.15em] uppercase font-medium" style="color: rgba(168,50,50,0.7);">' + img.label + '</span>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+      var wrap = document.getElementById('loadMoreWrap');
       if (visibleCount >= total) { wrap.classList.add('hidden'); }
-      else { wrap.classList.remove('hidden'); document.getElementById('loadMoreBtn').textContent = `Load More (${total - visibleCount} remaining)`; }
+      else { wrap.classList.remove('hidden'); document.getElementById('loadMoreBtn').textContent = 'Load More (' + (total - visibleCount) + ' remaining)'; }
     }
 
     function loadMore() {
       visibleCount += PER_PAGE;
       renderGallery();
-      setTimeout(() => {
-        const items = document.querySelectorAll('.masonry-item');
-        const target = items[Math.max(0, items.length - PER_PAGE)];
+      setTimeout(function() {
+        var items = document.querySelectorAll('.masonry-item');
+        var target = items[Math.max(0, items.length - PER_PAGE)];
         if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }, 100);
     }
 
-    // Lightbox
-    let lbCur = 0;
+    var lbCur = 0;
     function openLB(i) { lbCur = i; updLB(); document.getElementById('lightbox').classList.add('active'); document.body.style.overflow = 'hidden'; }
     function closeLB() { document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow = ''; }
     function prevLB() { lbCur = (lbCur - 1 + filteredImages.length) % filteredImages.length; updLB(); }
     function nextLB() { lbCur = (lbCur + 1) % filteredImages.length; updLB(); }
     function updLB() {
-      const img = filteredImages[lbCur];
+      var img = filteredImages[lbCur];
       if (!img) return;
       document.getElementById('lbImg').src = img.fullSrc;
       document.getElementById('lbCat').textContent = img.label;
-      document.getElementById('lbCounter').textContent = `${lbCur + 1} / ${filteredImages.length}`;
+      document.getElementById('lbCounter').textContent = (lbCur + 1) + ' / ' + filteredImages.length;
     }
-    document.addEventListener('keydown', e => {
+    document.addEventListener('keydown', function(e) {
       if (!document.getElementById('lightbox').classList.contains('active')) return;
       if (e.key === 'Escape') closeLB();
       if (e.key === 'ArrowLeft') prevLB();
       if (e.key === 'ArrowRight') nextLB();
     });
-    document.getElementById('lightbox').addEventListener('click', e => {
+    document.getElementById('lightbox').addEventListener('click', function(e) {
       if (e.target === document.getElementById('lightbox')) closeLB();
     });
 
-    // Nav, scroll, form
-    const glow = document.getElementById('cursor-glow');
-    document.addEventListener('mousemove', e => { glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px'; });
+    var glow = document.getElementById('cursorGlow');
+    document.addEventListener('mousemove', function(e) { glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px'; });
 
-    const mt = document.getElementById('menuToggle');
-    const mm = document.getElementById('mobileMenu');
-    let mo = false;
-    mt.addEventListener('click', () => {
+    var mt = document.getElementById('menuToggle');
+    var mm = document.getElementById('mobileMenu');
+    var mo = false;
+    mt.addEventListener('click', function() {
       mo = !mo;
       mm.classList.toggle('open', mo);
       document.getElementById('l1').style.transform = mo ? 'rotate(45deg) translate(3px,3px)' : '';
@@ -499,34 +473,32 @@
       document.getElementById('l3').style.transform = mo ? 'rotate(-45deg) translate(3px,-3px)' : '';
       document.body.style.overflow = mo ? 'hidden' : '';
     });
-    document.querySelectorAll('.mlink').forEach(l => l.addEventListener('click', () => {
+    document.querySelectorAll('.mlink').forEach(function(l) { l.addEventListener('click', function() {
       mo = false; mm.classList.remove('open');
       document.getElementById('l1').style.transform = '';
       document.getElementById('l2').style.opacity = '1';
       document.getElementById('l3').style.transform = '';
       document.body.style.overflow = '';
-    }));
+    }); });
 
-    const ro = new IntersectionObserver(entries => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) { setTimeout(() => e.target.classList.add('revealed'), i * 60); ro.unobserve(e.target); }
+    var ro = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          setTimeout(function() { e.target.classList.add('revealed'); }, 0);
+          ro.unobserve(e.target);
+        }
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.scroll-reveal').forEach(el => ro.observe(el));
+    document.querySelectorAll('.scroll-reveal').forEach(function(el) { ro.observe(el); });
 
-    document.getElementById('contactForm').addEventListener('submit', e => {
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const t = document.getElementById('toast');
+      var t = document.getElementById('toast');
       t.classList.add('show');
       e.target.reset();
-      setTimeout(() => t.classList.remove('show'), 3500);
+      setTimeout(function() { t.classList.remove('show'); }, 3500);
     });
 
-    window.addEventListener('scroll', () => {
-      document.querySelector('nav').style.borderBottom = window.scrollY > 60 ? 'none' : 'none';
-    });
-
-    // Init
     if (allImages.length > 0) { updateCounts(); filteredImages = getFiltered('all'); renderGallery(); document.getElementById('masonry').classList.remove('hidden'); }
     else { document.getElementById('noDataState').classList.remove('hidden'); }
   </script>
