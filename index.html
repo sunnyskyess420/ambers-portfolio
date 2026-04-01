@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SunnySkyesS — Amber's Portfolio</title>
+  <title>SunnySkyesS — Digital Buccaneer</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
@@ -15,14 +15,14 @@
           colors: {
             bb: {
               black: '#0a0908',
-              dark: '#161010',
+              dark: '#12100d',
               panel: '#e8e3d7',
-              green: '#a83232',
-              greendim: '#6b2020',
-              red: '#d44638',
+              green: '#c9923b',
+              greendim: '#8b6f2a',
+              red: '#8b3a2c',
               reddim: '#5c2820',
-              gold: '#c9923b',
-              goldbright: '#e0b04a',
+              gold: '#e0b04a',
+              goldbright: '#f0c060',
               cream: '#f2ede3',
               border: '#c9c3b5',
               text: '#1a1612',
@@ -40,52 +40,44 @@
   </script>
   <style>
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #161010; }
+    ::-webkit-scrollbar-track { background: #0f0808; }
     ::-webkit-scrollbar-thumb { background: #5c2820; border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: #a83232; }
+    ::-webkit-scrollbar-thumb:hover { background: #c9923b; }
 
-    .plaid-bg {
-      background-color: #0f0a0a;
-      background-image:
-        linear-gradient(0deg, rgba(139,58,44,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(139,58,44,0.04) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(139,58,44,0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(139,58,44,0.07) 1px, transparent 1px);
-      background-size: 30px 30px, 30px 30px, 60px 60px, 60px 60px;
+    .canvas-bg {
+      background-color: #0f0808;
+      position: relative;
     }
-    .plaid-hero {
-      background-image:
-        linear-gradient(0deg, rgba(139,58,44,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(139,58,44,0.025) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(139,58,44,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(139,58,44,0.04) 1px, transparent 1px);
-      background-size: 44px 44px, 44px 44px, 88px 88px, 88px 88px;
+    .canvas-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('https://z-cdn-media.chatglm.cn/files/10f142ea-c6cc-4a32-baca-5b31707fc6ba.png?auth_key=1875076231-cd6a1eb4a2ac44a5a07e7d03d38f9d2f-0-61405928305ec4c24745f9ffc8ed5f4f');
+      background-size: 350px 350px;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
     }
-    .plaid-strip {
-      background-color: #150c0c;
-      background-image:
-        linear-gradient(0deg, rgba(139,58,44,0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(139,58,44,0.1) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(139,58,44,0.18) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(139,58,44,0.18) 1px, transparent 1px);
-      background-size: 12px 12px, 12px 12px, 24px 24px, 24px 24px;
+    .canvas-bg > * {
+      position: relative;
+      z-index: 1;
     }
 
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
     @keyframes shimmer {
       0% { background-position: -200% center; }
       100% { background-position: 200% center; }
     }
-    @keyframes pulse-accent {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(168,50,50,0.35); }
-      50% { box-shadow: 0 0 20px 5px rgba(168,50,50,0.12); }
+    @keyframes pulse-gold {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(201,146,59,0.3); }
+      50% { box-shadow: 0 0 24px 6px rgba(201,146,59,0.1); }
+    }
+    @keyframes logoGlow {
+      0%, 100% { filter: drop-shadow(0 0 20px rgba(201,146,59,0.15)); }
+      50% { filter: drop-shadow(0 0 40px rgba(201,146,59,0.25)); }
     }
 
     .anim { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
@@ -93,11 +85,11 @@
     .d2 { animation-delay: 0.3s; }
     .d3 { animation-delay: 0.5s; }
     .d4 { animation-delay: 0.7s; }
-    .anim-float { animation: float 5s ease-in-out infinite; }
-    .animate-pulse-accent { animation: pulse-accent 2.5s ease-in-out infinite; }
+    .animate-pulse-gold { animation: pulse-gold 2.5s ease-in-out infinite; }
+    .logo-glow { animation: logoGlow 4s ease-in-out infinite; }
 
     .shimmer-text {
-      background: linear-gradient(90deg, #8b3a2c 0%, #c9923b 35%, #d44638 65%, #e0b04a 100%);
+      background: linear-gradient(90deg, #8b6f2a 0%, #e0b04a 35%, #c9923b 65%, #f0c060 100%);
       background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -107,20 +99,11 @@
     .nav-link { position: relative; }
     .nav-link::after {
       content: ''; position: absolute; bottom: -3px; left: 0;
-      width: 0; height: 1px; background: #a83232;
+      width: 0; height: 1px; background: #c9923b;
       transition: width 0.3s ease;
     }
     .nav-link:hover::after { width: 100%; }
-    .nav-link.active::after { width: 100%; background: #a83232; }
-
-    .paper-grain {
-      position: relative;
-    }
-    .paper-grain::after {
-      content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-      opacity: 0.04;
-    }
+    .nav-link.active::after { width: 100%; background: #c9923b; }
 
     .scroll-reveal {
       opacity: 0; transform: translateY(20px);
@@ -140,9 +123,9 @@
     .masonry-item:hover .item-overlay { opacity: 1; }
 
     .cat-btn { transition: all 0.25s ease; }
-    .cat-btn.active { background: rgba(168,50,50,0.1); color: #a83232; border-color: rgba(168,50,50,0.25); }
-    .cat-btn .cat-count { opacity: 0.4; transition: opacity:0.25s; }
-    .cat-btn.active .cat-count { opacity: 0.6; }
+    .cat-btn.active { background: rgba(201,146,59,0.12); color: #e0b04a; border-color: rgba(201,146,59,0.3); }
+    .cat-btn .cat-count { opacity: 0.5; transition: opacity:0.25s; }
+    .cat-btn.active .cat-count { opacity: 0.8; }
 
     .mobile-menu {
       transform: translateX(100%);
@@ -160,222 +143,219 @@
     .cursor-glow {
       pointer-events: none; position: fixed;
       width: 280px; height: 280px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(168,50,50,0.04) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(201,146,59,0.035) 0%, transparent 70%);
       transform: translate(-50%, -50%); z-index: 0;
     }
   </style>
 </head>
-<body class="font-body text-bb-text antialiased overflow-x-hidden" style="background: #0f0a0a;">
+<body class="font-body text-bb-text antialiased overflow-x-hidden" style="background: #0f0808;">
 
   <div class="cursor-glow hidden lg:block" id="cursorGlow"></div>
 
   <!-- Nav -->
-  <nav class="fixed top-0 left-0 right-0 z-50 h-16 flex items-center px-6" style="background: rgba(10,5,5,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(139,58,44,0.1);">
+  <nav class="fixed top-0 left-0 right-0 z-50 h-16 flex items-center px-6" style="background: rgba(15,8,8,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,146,59,0.1);">
     <div class="max-w-6xl mx-auto w-full flex items-center justify-between">
       <a href="#hero" class="flex items-center gap-2.5">
-        <div class="w-7 h-7 rounded-full bg-bb-reddim/30 border border-bb-green/30 flex items-center justify-center">
-          <span class="font-serif text-bb-green text-[11px] font-semibold">A</span>
+        <div class="w-7 h-7 rounded-full flex items-center justify-center" style="background: rgba(201,146,59,0.12); border: 1px solid rgba(201,146,59,0.25);">
+          <span class="font-serif text-bb-green text-[10px] font-semibold">S</span>
         </div>
         <span class="text-xs font-medium tracking-wider text-bb-light">SunnySkyesS</span>
       </a>
       <div class="hidden md:flex items-center gap-7">
-        <a href="#about" class="nav-link text-[11px] font-medium tracking-widest uppercase text-bb-mid hover:text-bb-light transition-colors">About</a>
-        <a href="#work" class="nav-link active text-[11px] font-medium tracking-widest uppercase text-bb-light hover:text-bb-light transition-colors">Work</a>
-        <a href="#contact" class="nav-link text-[11px] font-medium tracking-widest uppercase text-bb-mid hover:text-bb-light transition-colors">Contact</a>
+        <a href="#about" class="nav-link text-[11px] font-medium tracking-widest uppercase text-bb-light hover:text-white transition-colors">About</a>
+        <a href="#work" class="nav-link active text-[11px] font-medium tracking-widest uppercase text-white hover:text-white transition-colors">Stash</a>
+        <a href="#contact" class="nav-link text-[11px] font-medium tracking-widest uppercase text-bb-light hover:text-white transition-colors">Signal</a>
       </div>
       <button id="menuToggle" class="md:hidden w-9 h-9 flex flex-col items-center justify-center gap-1.5">
-        <span class="w-5 h-px bg-bb-light transition-all duration-300" id="l1"></span>
-        <span class="w-3.5 h-px bg-bb-light transition-all duration-300" id="l2"></span>
-        <span class="w-5 h-px bg-bb-light transition-all duration-300" id="l3"></span>
+        <span class="w-5 h-px bg-white transition-all duration-300" id="l1"></span>
+        <span class="w-3.5 h-px bg-white transition-all duration-300" id="l2"></span>
+        <span class="w-5 h-px bg-white transition-all duration-300" id="l3"></span>
       </button>
     </div>
   </nav>
 
   <!-- Mobile Menu -->
-  <div class="mobile-menu fixed inset-0 z-40 flex flex-col items-center justify-center gap-7 plaid-bg" id="mobileMenu" style="background: rgba(10,5,5,0.98); backdrop-filter: blur(20px);">
-    <a href="#about" class="text-xl font-serif italic text-bb-mid hover:text-bb-light transition-colors mlink">About</a>
-    <a href="#work" class="text-xl font-serif italic text-bb-mid hover:text-bb-light transition-colors mlink">Work</a>
-    <a href="#contact" class="text-xl font-serif italic text-bb-mid hover:text-bb-light transition-colors mlink">Contact</a>
+  <div class="mobile-menu fixed inset-0 z-40 flex flex-col items-center justify-center gap-7" id="mobileMenu" style="background: rgba(15,8,8,0.98); backdrop-filter: blur(20px);">
+    <a href="#about" class="text-xl font-serif italic text-bb-light hover:text-white transition-colors mlink">About</a>
+    <a href="#work" class="text-xl font-serif italic text-bb-light hover:text-white transition-colors mlink">The Stash</a>
+    <a href="#contact" class="text-xl font-serif italic text-bb-light hover:text-white transition-colors mlink">Send Signal</a>
   </div>
 
   <!-- Hero -->
   <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0" style="background: linear-gradient(to top, #1a0808 0%, rgba(22,10,10,0.85) 35%, rgba(15,10,8,0.7) 70%, rgba(10,5,5,0.5) 100%);"></div>
-    <div class="absolute inset-0" style="background: radial-gradient(ellipse at 50% 55%, rgba(139,58,44,0.12) 0%, transparent 55%);"></div>
-    <div class="absolute inset-0 plaid-hero"></div>
-    <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, transparent 35%, rgba(10,5,5,0.5) 100%); pointer-events: none;"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(to top, #0f0808 0%, rgba(15,8,8,0.92) 30%, rgba(15,8,8,0.75) 65%, rgba(15,8,8,0.6) 100%);"></div>
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse at 50% 50%, rgba(201,146,59,0.1) 0%, transparent 50%);"></div>
+    <div class="absolute inset-0" style="background-image: url('https://z-cdn-media.chatglm.cn/files/10f142ea-c6cc-4a32-baca-5b31707fc6ba.png?auth_key=1875076231-cd6a1eb4a2ac44a5a07e7d03d38f9d2f-0-61405928305ec4c24745f9ffc8ed5f4f'); background-size: 450px 450px; opacity: 0.08;"></div>
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, transparent 30%, rgba(15,8,8,0.5) 100%); pointer-events: none;"></div>
 
     <div class="relative z-10 text-center px-6">
-      <p class="anim text-[11px] font-medium tracking-[0.3em] uppercase text-white mb-5 border border-white/20 px-5 py-1.5 rounded-full bg-black/40 backdrop-blur-sm" style="text-shadow: 0 1px 3px rgba(0,0,0,0.4);">"Beaver Banker in Edmonton — the beaver adapts"</p>
-      <h1 class="anim d1">
-        <span class="block font-serif text-6xl md:text-8xl lg:text-[6.5rem] tracking-tight leading-[1.05] text-white" style="text-shadow: 0 4px 12px rgba(0,0,0,0.4);">Hi, I'm</span>
-        <span class="block font-serif text-6xl md:text-8xl lg:text-[6.5rem] tracking-tight leading-[1.05] shimmer-text mt-1">Amber</span>
-      </h1>
-      <p class="anim d2 mt-5 text-base md:text-lg font-light text-white/60 max-w-md mx-auto leading-relaxed">
-        I craft polished graphics and designs that look beautiful and feel just right. Everything I create is free and made with care.
+      <p class="anim text-[11px] font-medium tracking-[0.3em] uppercase text-white mb-8 border border-white/20 px-5 py-1.5 rounded-full bg-black/30 backdrop-blur-sm">Beaver Banker · Digital Pirate · PS Wizard</p>
+
+      <div class="anim d1 mb-8">
+        <img src="https://z-cdn-media.chatglm.cn/files/e6b1a59b-9a09-4ec7-816f-d124ec8b8b05.png?auth_key=1875068642-2e33152d14ee4e21b02ca121d418fbd2-0-20f216a430ada070ee63e225be49a46b" alt="SunnySkyesS Logo" class="mx-auto max-w-xs sm:max-w-sm md:max-w-md logo-glow rounded-lg">
+      </div>
+
+      <p class="anim d2 text-base md:text-lg font-light text-white/75 max-w-lg mx-auto leading-relaxed">
+        Plundering pixels, forging art, sailing the digital seas.<br class="hidden sm:block"> Everything here is free — always has been, always will be.
       </p>
       <div class="anim d3 mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#work" class="px-7 py-3 bg-bb-green text-white text-[11px] font-semibold tracking-widest uppercase rounded-[4px] hover:bg-bb-green/80 transition-colors duration-150 animate-pulse-accent">
-          See My Work
+        <a href="#work" class="px-7 py-3 bg-bb-green text-black text-[11px] font-semibold tracking-widest uppercase rounded-[4px] hover:bg-bb-gold transition-colors duration-150 animate-pulse-gold">
+          View the Stash
         </a>
-        <a href="#about" class="px-7 py-3 border border-white/20 text-white/80 text-[11px] font-semibold tracking-widest uppercase rounded-[4px] hover:border-bb-green/60 hover:text-white transition-all duration-300">Learn More</a>
+        <a href="#about" class="px-7 py-3 border border-white/20 text-white text-[11px] font-semibold tracking-widest uppercase rounded-[4px] hover:border-bb-green/50 hover:text-white transition-all duration-300">The Story</a>
       </div>
-    </div>
-    <div class="anim d4 absolute bottom-7 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5">
-      <span class="text-[9px] tracking-[0.2em] uppercase text-white/40">Scroll</span>
-      <div class="w-px h-7 bg-gradient-to-b from-bb-green/40 to-transparent"></div>
     </div>
   </section>
 
-  <!-- Plaid divider -->
-  <div class="plaid-strip" style="height: 20px;"></div>
+  <!-- Divider -->
+  <div class="flex items-center justify-center gap-4 py-5" style="background: #0f0808;">
+    <div class="flex-1 max-w-[200px] h-px" style="background: linear-gradient(to right, transparent, rgba(201,146,59,0.2), transparent);"></div>
+    <span class="iconify" data-icon="lucide:skull" data-width="14" style="color: rgba(201,146,59,0.35);"></span>
+    <div class="flex-1 max-w-[200px] h-px" style="background: linear-gradient(to right, transparent, rgba(201,146,59,0.2), transparent);"></div>
+  </div>
 
   <!-- About -->
-  <section id="about" class="py-20 md:py-28 paper-grain bg-bb-cream">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-14 items-start">
-        <div class="md:col-span-2 scroll-reveal relative">
-          <img src="https://z-cdn-media.chatglm.cn/files/ed3560cb-34dd-4d8b-aea2-51f02a6e8108.jpg?auth_key=1875065280-6ca687fc9e6f41cca16fce94c6e45f71-0-f0203cd6bd6a1ee63708d2f64a3afa5e" alt="Amber" class="w-full h-[380px] md:h-[440px] object-cover rounded-[4px]" style="box-shadow: 0 8px 30px rgba(0,0,0,0.2);">
-          <div class="absolute -bottom-4 -right-4 bg-bb-panel border border-bb-border rounded-[4px] px-4 py-3 anim-float" style="box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
-            <span class="block text-lg font-serif text-bb-green leading-none">20+</span>
-            <span class="text-[9px] tracking-[0.15em] uppercase text-bb-mid">Years</span>
-          </div>
-        </div>
-        <div class="md:col-span-3 scroll-reveal">
-          <p class="text-[10px] font-medium tracking-[0.25em] uppercase text-bb-greendim mb-3">About Me</p>
-          <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-tight text-bb-text mb-4" style="text-shadow: 0 1px 2px rgba(0,0,0,0.05);">
-            Beaver Banker at heart,<br>creative by <span class="italic text-bb-green">nature</span>
-          </h2>
-          <div class="w-10 h-px mb-6" style="background: linear-gradient(to right, #a83232, transparent);"></div>
-          <p class="text-sm font-medium text-bb-text leading-relaxed mb-4">
-            I'm Amber — the person behind SunnySkyesS. I create images, edit photos, and bring ideas to life. Not because I'm paid to, but because I genuinely love doing it.
-          </p>
-          <p class="text-sm font-light text-bb-mid leading-relaxed mb-6">
-            Everything here is free. I believe creativity shouldn't have a price tag when it comes from the heart. If you need something made, just ask. ☀️
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 text-[9px] tracking-wider uppercase text-bb-mid border border-bb-border rounded-[4px] hover:border-bb-green/30 hover:text-bb-green transition-colors cursor-default">AI Generated Images</span>
-            <span class="px-3 py-1 text-[9px] tracking-wider uppercase text-bb-mid border border-bb-border rounded-[4px] hover:border-bb-green/30 hover:text-bb-green transition-colors cursor-default">Photoshop</span>
-            <span class="px-3 py-1 text-[9px] tracking-wider uppercase text-bb-mid border border-bb-border rounded-[4px] hover:border-bb-green/30 hover:text-bb-green transition-colors cursor-default">Lightroom</span>
-            <span class="px-3 py-1 text-[9px] tracking-wider uppercase text-bb-mid border border-bb-border rounded-[4px] hover:border-bb-green/30 hover:text-bb-green transition-colors cursor-default">Skylum Neo</span>
-          </div>
-        </div>
+  <section id="about" class="py-20 md:py-28 canvas-bg relative">
+    <div class="max-w-4xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-10 scroll-reveal">
+        <p class="text-[10px] font-medium tracking-[0.25em] uppercase mb-3" style="color: #c9923b;">What is this place</p>
+        <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-tight text-white mb-4">A digital port of call</h2>
+        <div class="w-10 h-px mx-auto mb-6" style="background: linear-gradient(to right, transparent, rgba(201,146,59,0.4), transparent);"></div>
+        <p class="text-sm font-light text-white/70 max-w-xl mx-auto leading-relaxed mb-4">
+          SunnySkyesS is where raw resources get forged into finished art — Photoshop wizardry, AI generation, and good old-fashioned editing, all rolled into one free stash.
+        </p>
+        <p class="text-sm font-light text-white/55 max-w-xl mx-auto leading-relaxed">
+          Based in Edmonton but permanently anchored in Beaver Bank, NS. Everything here is free because creativity shouldn't come with a price tag.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-2 scroll-reveal">
+        <span class="px-3 py-1 text-[9px] tracking-wider uppercase text-white/55 border border-white/12 rounded-[4px] hover:border-bb-green/30 hover:text-bb-green transition-colors cursor-default">Photoshop</span>
+        <span class="px-3 py-1 text-[9px] tracking-wider uppercase text-white/55 border border-white/12 rounded-[4px] hover:border-bb-green/30 hover:text-bb-green transition-colors cursor-default">Lightroom</span>
+        <span class="px-3 py-1 text-[9px] tracking-wider uppercase text-white/55 border border-white/12 rounded-[4px] hover:border-bb-green/30 hover:text-bb-green transition-colors cursor-default">AI Generation</span>
+        <span class="px-3 py-1 text-[9px] tracking-wider uppercase text-white/55 border border-white/12 rounded-[4px] hover:border-bb-green/30 hover:text-bb-green transition-colors cursor-default">Skylum Neo</span>
+        <span class="px-3 py-1 text-[9px] tracking-wider uppercase text-white/55 border border-white/12 rounded-[4px] hover:border-bb-green/30 hover:text-bb-green transition-colors cursor-default">Compositing</span>
       </div>
     </div>
   </section>
 
-  <!-- Plaid divider -->
-  <div class="plaid-strip" style="height: 20px;"></div>
+  <!-- Divider -->
+  <div class="flex items-center justify-center gap-4 py-5" style="background: #0f0808;">
+    <div class="flex-1 max-w-[200px] h-px" style="background: linear-gradient(to right, transparent, rgba(201,146,59,0.2), transparent);"></div>
+    <span class="iconify" data-icon="lucide:compass" data-width="14" style="color: rgba(201,146,59,0.35);"></span>
+    <div class="flex-1 max-w-[200px] h-px" style="background: linear-gradient(to right, transparent, rgba(201,146,59,0.2), transparent);"></div>
+  </div>
 
   <!-- Gallery -->
-  <section id="work" class="py-20 md:py-28 plaid-bg relative">
+  <section id="work" class="py-20 md:py-28 canvas-bg relative">
     <div class="max-w-6xl mx-auto px-6 relative z-10">
       <div class="text-left mb-10 scroll-reveal">
-        <p class="text-[10px] font-medium tracking-[0.25em] uppercase text-bb-green mb-3">Portfolio</p>
-        <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-tight text-white mb-4">Things I've made</h2>
-        <div class="w-10 h-px" style="background: linear-gradient(to right, #a83232, transparent);"></div>
+        <p class="text-[10px] font-medium tracking-[0.25em] uppercase mb-3" style="color: #c9923b;">The Stash</p>
+        <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-tight text-white mb-4">Plundered, forged & created</h2>
+        <div class="w-10 h-px" style="background: linear-gradient(to right, rgba(201,146,59,0.4), transparent);"></div>
       </div>
       <div class="flex flex-wrap gap-2 mb-6 scroll-reveal">
-        <button class="cat-btn active px-5 py-2 text-[10px] tracking-[0.15em] uppercase font-semibold border border-white/10 rounded-[4px]" data-cat="all" onclick="filterCat('all')">All <span class="cat-count ml-1" id="countAll"></span></button>
-        <button class="cat-btn px-5 py-2 text-[10px] tracking-[0.15em] uppercase font-semibold text-white/50 border border-white/10 rounded-[4px] hover:text-white/80 hover:border-white/20 transition-all duration-300" data-cat="ai-art" onclick="filterCat('ai-art')">AI Art <span class="cat-count ml-1" id="countAiArt"></span></button>
-        <button class="cat-btn px-5 py-2 text-[10px] tracking-[0.15em] uppercase font-semibold text-white/50 border border-white/10 rounded-[4px] hover:text-white/80 hover:border-white/20 transition-all duration-300" data-cat="artwork" onclick="filterCat('artwork')">Artwork <span class="cat-count ml-1" id="countArtwork"></span></button>
-        <button class="cat-btn px-5 py-2 text-[10px] tracking-[0.15em] uppercase font-semibold text-white/50 border border-white/10 rounded-[4px] hover:text-white/80 hover:border-white/20 transition-all duration-300" data-cat="my-creations" onclick="filterCat('my-creations')">My Creations <span class="cat-count ml-1" id="countMyCreations"></span></button>
-        <button class="cat-btn px-5 py-2 text-[10px] tracking-[0.15em] uppercase font-semibold text-white/50 border border-white/10 rounded-[4px] hover:text-white/80 hover:border-white/20 transition-all duration-300" data-cat="photography" onclick="filterCat('photography')">Photography <span class="cat-count ml-1" id="countPhotography"></span></button>
+        <button class="cat-btn active px-5 py-2 text-[10px] tracking-[0.15em] uppercase font-semibold border border-white/12 rounded-[4px]" data-cat="all" onclick="filterCat('all')">All <span class="cat-count ml-1" id="countAll"></span></button>
+        <button class="cat-btn px-5 py-2 text-[10px] tracking-[0.15em] uppercase font-semibold text-white/65 border border-white/12 rounded-[4px] hover:text-white hover:border-white/25 transition-all duration-300" data-cat="ai-art" onclick="filterCat('ai-art')">AI Art <span class="cat-count ml-1" id="countAiArt"></span></button>
+        <button class="cat-btn px-5 py-2 text-[10px] tracking-[0.15em] uppercase font-semibold text-white/65 border border-white/12 rounded-[4px] hover:text-white hover:border-white/25 transition-all duration-300" data-cat="artwork" onclick="filterCat('artwork')">Artwork <span class="cat-count ml-1" id="countArtwork"></span></button>
+        <button class="cat-btn px-5 py-2 text-[10px] tracking-[0.15em] uppercase font-semibold text-white/65 border border-white/12 rounded-[4px] hover:text-white hover:border-white/25 transition-all duration-300" data-cat="my-creations" onclick="filterCat('my-creations')">My Creations <span class="cat-count ml-1" id="countMyCreations"></span></button>
+        <button class="cat-btn px-5 py-2 text-[10px] tracking-[0.15em] uppercase font-semibold text-white/65 border border-white/12 rounded-[4px] hover:text-white hover:border-white/25 transition-all duration-300" data-cat="photography" onclick="filterCat('photography')">Photography <span class="cat-count ml-1" id="countPhotography"></span></button>
       </div>
-      <p class="text-[10px] text-white/40 mb-8" id="showingCount"></p>
+      <p class="text-[10px] text-white/55 mb-8" id="showingCount"></p>
 
       <div class="hidden text-center py-16" id="noDataState">
-        <span class="iconify text-white/30 mx-auto mb-4" data-icon="lucide:image-off" data-width="32"></span>
-        <p class="text-sm text-white/50 mb-2">No images loaded</p>
-        <p class="text-xs text-white/30 max-w-md mx-auto">Make sure <strong class="text-white/60">gallery.js</strong> is in the same folder as this HTML file.</p>
+        <span class="iconify text-white/40 mx-auto mb-4" data-icon="lucide:image-off" data-width="32"></span>
+        <p class="text-sm text-white/65 mb-2">No images loaded</p>
+        <p class="text-xs text-white/45 max-w-md mx-auto">Make sure <strong class="text-white/70">gallery.js</strong> is in the same folder as this HTML file.</p>
       </div>
 
       <div class="masonry hidden" id="masonry"></div>
 
       <div class="hidden text-center py-16" id="emptyState">
-        <p class="text-sm text-white/40">No images in this category.</p>
+        <p class="text-sm text-white/55">Nothing in this chest.</p>
       </div>
 
       <div class="text-center mt-10 hidden" id="loadMoreWrap">
-        <button onclick="loadMore()" id="loadMoreBtn" class="px-8 py-2.5 border border-white/10 text-[10px] tracking-[0.15em] uppercase font-semibold text-white/50 rounded-[4px] hover:border-bb-green/40 hover:text-bb-green transition-all duration-300">Load More</button>
+        <button onclick="loadMore()" id="loadMoreBtn" class="px-8 py-2.5 border border-white/15 text-[10px] tracking-[0.15em] uppercase font-semibold text-white/65 rounded-[4px] hover:border-bb-green/40 hover:text-bb-green transition-all duration-300">Dig Deeper</button>
       </div>
     </div>
   </section>
 
-  <!-- Plaid divider -->
-  <div class="plaid-strip" style="height: 20px;"></div>
+  <!-- Divider -->
+  <div class="flex items-center justify-center gap-4 py-5" style="background: #0f0808;">
+    <div class="flex-1 max-w-[200px] h-px" style="background: linear-gradient(to right, transparent, rgba(201,146,59,0.2), transparent);"></div>
+    <span class="iconify" data-icon="lucide:skull" data-width="14" style="color: rgba(201,146,59,0.35);"></span>
+    <div class="flex-1 max-w-[200px] h-px" style="background: linear-gradient(to right, transparent, rgba(201,146,59,0.2), transparent);"></div>
+  </div>
 
   <!-- Contact -->
-  <section id="contact" class="py-20 md:py-28 paper-grain bg-bb-cream">
-    <div class="max-w-2xl mx-auto px-6">
+  <section id="contact" class="py-20 md:py-28 canvas-bg relative">
+    <div class="max-w-2xl mx-auto px-6 relative z-10">
       <div class="text-center mb-12 scroll-reveal">
-        <p class="text-[10px] font-medium tracking-[0.25em] uppercase text-bb-greendim mb-3">Say Hello</p>
-        <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-tight text-bb-text mb-3" style="text-shadow: 0 1px 2px rgba(0,0,0,0.05);">Need something made?</h2>
-        <p class="text-sm font-light text-bb-mid max-w-md mx-auto">It's free. Just tell me what you're looking for.</p>
+        <p class="text-[10px] font-medium tracking-[0.25em] uppercase mb-3" style="color: #c9923b;">Send a Signal</p>
+        <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-tight text-white mb-3">Need something forged?</h2>
+        <p class="text-sm font-light text-white/65 max-w-md mx-auto">It's free. Just tell me what you're looking for and I'll make it happen.</p>
       </div>
       <form id="contactForm" class="scroll-reveal space-y-4">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <input type="text" required placeholder="Name" class="w-full bg-bb-panel border border-bb-border rounded-[4px] px-4 py-3 text-sm text-bb-text placeholder-bb-mid focus:outline-none focus:border-bb-green/40 transition-colors">
-          <input type="email" required placeholder="Email" class="w-full bg-bb-panel border border-bb-border rounded-[4px] px-4 py-3 text-sm text-bb-text placeholder-bb-mid focus:outline-none focus:border-bb-green/40 transition-colors">
+          <input type="text" required placeholder="Name" class="w-full border border-white/15 rounded-[4px] px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-bb-green/40 transition-colors" style="background: rgba(255,255,255,0.04);">
+          <input type="email" required placeholder="Email" class="w-full border border-white/15 rounded-[4px] px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-bb-green/40 transition-colors" style="background: rgba(255,255,255,0.04);">
         </div>
-        <select class="w-full bg-bb-panel border border-bb-border rounded-[4px] px-4 py-3 text-sm text-bb-mid focus:outline-none focus:border-bb-green/40 transition-colors appearance-none cursor-pointer" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2214%22 height=%2214%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22#8a8478%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22/></svg>'); background-repeat: no-repeat; background-position: right 14px center;">
+        <select class="w-full border border-white/15 rounded-[4px] px-4 py-3 text-sm text-white/65 focus:outline-none focus:border-bb-green/40 transition-colors appearance-none cursor-pointer" style="background: rgba(255,255,255,0.04); background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2214%22 height=%2214%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22rgba(201,146,59,0.6)%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22/></svg>'); background-repeat: no-repeat; background-position: right 14px center;">
           <option value="">What do you need?</option>
           <option>AI Generated Image</option>
           <option>Photo Editing</option>
           <option>Something Creative</option>
           <option>Something else</option>
         </select>
-        <textarea required rows="5" placeholder="Tell me about your project..." class="w-full bg-bb-panel border border-bb-border rounded-[4px] px-4 py-3 text-sm text-bb-text placeholder-bb-mid focus:outline-none focus:border-bb-green/40 transition-colors resize-none"></textarea>
-        <button type="submit" class="w-full py-3 bg-bb-green text-white text-[11px] font-semibold tracking-widest uppercase rounded-[4px] hover:bg-bb-green/80 transition-colors duration-150">Send Message</button>
-        <p class="text-[10px] text-bb-mid text-center">I'll get back to you soon ☀️</p>
+        <textarea required rows="5" placeholder="Tell me about your project..." class="w-full border border-white/15 rounded-[4px] px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-bb-green/40 transition-colors resize-none" style="background: rgba(255,255,255,0.04);"></textarea>
+        <button type="submit" class="w-full py-3 bg-bb-green text-black text-[11px] font-semibold tracking-widest uppercase rounded-[4px] hover:bg-bb-gold transition-colors duration-150">Send Signal</button>
+        <p class="text-[10px] text-white/50 text-center">I'll respond faster than a torrent finishes ☀️</p>
       </form>
     </div>
   </section>
 
-  <!-- Plaid divider -->
-  <div class="plaid-strip" style="height: 16px;"></div>
-
   <!-- Footer -->
-  <footer class="py-8 plaid-bg" style="background-color: #0a0505;">
-    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
+  <footer class="py-8" style="background: #0a0505; border-top: 1px solid rgba(201,146,59,0.1);">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-2">
-        <div class="w-5 h-5 rounded-full bg-bb-reddim/30 border border-bb-green/30 flex items-center justify-center">
-          <span class="font-serif text-bb-green text-[9px]">A</span>
+        <div class="w-5 h-5 rounded-full flex items-center justify-center" style="background: rgba(201,146,59,0.1); border: 1px solid rgba(201,146,59,0.2);">
+          <span class="font-serif text-[8px]" style="color: #c9923b;">S</span>
         </div>
-        <span class="text-[11px] text-white/40">SunnySkyesS</span>
+        <span class="text-[11px] text-white/55">SunnySkyesS</span>
       </div>
       <div class="flex items-center gap-5">
-        <a href="#" class="text-white/30 hover:text-bb-green transition-colors"><span class="iconify" data-icon="lucide:instagram" data-width="15"></span></a>
-        <a href="#" class="text-white/30 hover:text-bb-green transition-colors"><span class="iconify" data-icon="lucide:dribbble" data-width="15"></span></a>
-        <a href="#" class="text-white/30 hover:text-bb-green transition-colors"><span class="iconify" data-icon="lucide:linkedin" data-width="15"></span></a>
-        <a href="#" class="text-white/30 hover:text-bb-green transition-colors"><span class="iconify" data-icon="lucide:mail" data-width="15"></span></a>
+        <a href="#" class="text-white/40 hover:text-bb-green transition-colors"><span class="iconify" data-icon="lucide:instagram" data-width="15"></span></a>
+        <a href="#" class="text-white/40 hover:text-bb-green transition-colors"><span class="iconify" data-icon="lucide:dribbble" data-width="15"></span></a>
+        <a href="#" class="text-white/40 hover:text-bb-green transition-colors"><span class="iconify" data-icon="lucide:linkedin" data-width="15"></span></a>
+        <a href="#" class="text-white/40 hover:text-bb-green transition-colors"><span class="iconify" data-icon="lucide:mail" data-width="15"></span></a>
       </div>
-      <p class="text-[9px] tracking-wider text-white/25">© 2025 Amber · Beaver Bank NS</p>
+      <p class="text-[9px] tracking-wider text-white/45">© 2025 SunnySkyesS · Beaver Bank NS, sailing from Edmonton</p>
     </div>
   </footer>
 
   <!-- Lightbox -->
-  <div class="lightbox fixed inset-0 z-[60] flex items-center justify-center p-4" id="lightbox" style="background: rgba(10,5,5,0.96); backdrop-filter: blur(16px);">
-    <button onclick="closeLB()" class="absolute top-5 right-5 w-9 h-9 rounded-[4px] border border-white/10 flex items-center justify-center text-white/40 hover:text-white transition-colors z-10">
+  <div class="lightbox fixed inset-0 z-[60] flex items-center justify-center p-4" id="lightbox" style="background: rgba(10,5,5,0.97); backdrop-filter: blur(16px);">
+    <button onclick="closeLB()" class="absolute top-5 right-5 w-9 h-9 rounded-[4px] border border-white/15 flex items-center justify-center text-white/60 hover:text-white transition-colors z-10">
       <span class="iconify" data-icon="lucide:x" data-width="16"></span>
     </button>
-    <button onclick="prevLB()" class="absolute left-3 md:left-7 w-9 h-9 rounded-[4px] border border-white/10 flex items-center justify-center text-white/40 hover:text-white transition-colors z-10">
+    <button onclick="prevLB()" class="absolute left-3 md:left-7 w-9 h-9 rounded-[4px] border border-white/15 flex items-center justify-center text-white/60 hover:text-white transition-colors z-10">
       <span class="iconify" data-icon="lucide:chevron-left" data-width="16"></span>
     </button>
-    <button onclick="nextLB()" class="absolute right-3 md:right-7 w-9 h-9 rounded-[4px] border border-white/10 flex items-center justify-center text-white/40 hover:text-white transition-colors z-10">
+    <button onclick="nextLB()" class="absolute right-3 md:right-7 w-9 h-9 rounded-[4px] border border-white/15 flex items-center justify-center text-white/60 hover:text-white transition-colors z-10">
       <span class="iconify" data-icon="lucide:chevron-right" data-width="16"></span>
     </button>
     <div class="max-w-3xl w-full text-center">
-      <img id="lbImg" src="" alt="" class="max-h-[72vh] mx-auto rounded-[4px] object-contain" style="box-shadow: 0 8px 30px rgba(0,0,0,0.3);">
-      <p id="lbCat" class="text-[9px] tracking-[0.2em] uppercase text-bb-green font-medium mt-4"></p>
-      <p id="lbCounter" class="text-[10px] text-white/30 mt-1"></p>
+      <img id="lbImg" src="" alt="" class="max-h-[72vh] mx-auto rounded-[4px] object-contain" style="box-shadow: 0 8px 30px rgba(0,0,0,0.4);">
+      <p id="lbCat" class="text-[9px] tracking-[0.2em] uppercase font-medium mt-4" style="color: #c9923b;"></p>
+      <p id="lbCounter" class="text-[10px] text-white/55 mt-1"></p>
     </div>
   </div>
 
   <!-- Toast -->
-  <div class="toast fixed bottom-5 right-5 z-[70] rounded-[4px] px-5 py-3 flex items-center gap-2.5" id="toast" style="background: #e8e3d7; border: 1px solid #c9c3b5; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
-    <span class="iconify text-bb-green" data-icon="lucide:check-circle" data-width="16"></span>
-    <span class="text-sm text-bb-text">Sent! Talk soon ☀️</span>
+  <div class="toast fixed bottom-5 right-5 z-[70] rounded-[4px] px-5 py-3 flex items-center gap-2.5" id="toast" style="background: #1e1b16; border: 1px solid rgba(201,146,59,0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+    <span class="iconify" data-icon="lucide:check-circle" data-width="16" style="color: #c9923b;"></span>
+    <span class="text-sm text-white/80">Signal sent — talk soon ☀️</span>
   </div>
 
   <script>
@@ -409,22 +389,22 @@
       const grid = document.getElementById('masonry');
       const toShow = filteredImages.slice(0, visibleCount);
       const total = filteredImages.length;
-      document.getElementById('showingCount').textContent = total === 0 ? 'No images in this category' : 'Showing ' + toShow.length + ' of ' + total;
+      document.getElementById('showingCount').textContent = total === 0 ? 'Nothing in this chest' : 'Showing ' + toShow.length + ' of ' + total;
       document.getElementById('emptyState').classList.toggle('hidden', total > 0);
       grid.classList.toggle('hidden', total === 0);
       grid.innerHTML = toShow.map(function(img, i) {
         return '<div class="masonry-item">' +
-          '<div class="relative overflow-hidden rounded-[4px] group cursor-pointer" onclick="openLB(' + i + ')" style="background: #1a1010; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">' +
+          '<div class="relative overflow-hidden rounded-[4px] group cursor-pointer" onclick="openLB(' + i + ')" style="background: #1a1010; box-shadow: 0 4px 15px rgba(0,0,0,0.25);">' +
             '<img src="' + img.src + '" alt="" loading="lazy" class="w-full block" onload="this.classList.add(\'loaded\')" onerror="this.parentElement.parentElement.remove()">' +
-            '<div class="item-overlay absolute inset-0 flex flex-col justify-end p-4" style="background: linear-gradient(to top, rgba(10,5,5,0.8) 0%, transparent 60%);">' +
-              '<span class="text-[8px] tracking-[0.15em] uppercase font-medium" style="color: rgba(168,50,50,0.7);">' + img.label + '</span>' +
+            '<div class="item-overlay absolute inset-0 flex flex-col justify-end p-4" style="background: linear-gradient(to top, rgba(10,5,5,0.85) 0%, transparent 60%);">' +
+              '<span class="text-[8px] tracking-[0.15em] uppercase font-medium" style="color: #c9923b;">' + img.label + '</span>' +
             '</div>' +
           '</div>' +
         '</div>';
       }).join('');
       var wrap = document.getElementById('loadMoreWrap');
       if (visibleCount >= total) { wrap.classList.add('hidden'); }
-      else { wrap.classList.remove('hidden'); document.getElementById('loadMoreBtn').textContent = 'Load More (' + (total - visibleCount) + ' remaining)'; }
+      else { wrap.classList.remove('hidden'); document.getElementById('loadMoreBtn').textContent = 'Dig Deeper (' + (total - visibleCount) + ' remaining)'; }
     }
 
     function loadMore() {
