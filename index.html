@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SunnySkyesS — Digital Buccaneer</title>
+  <link rel="icon" type="image/png" href="https://z-cdn-media.chatglm.cn/files/1b6ea31f-388c-47a0-9ef0-0b35cdbfdba7.png?auth_key=1875083030-2a065533cf974638a82f54984a4923b2-0-2a1d7e931ff03701a402e08569b2ba1c">
+  <meta name="description" content="SunnySkyesS — Free AI art, Photoshop wizardry, and photo editing by a Beaver Bank digital pirate. Based in Edmonton, anchored in Nova Scotia.">
+  <meta property="og:title" content="SunnySkyesS — Digital Buccaneer">
+  <meta property="og:description" content="Free AI art, Photoshop wizardry, and photo editing. Plundering pixels since day one.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://z-cdn-media.chatglm.cn/files/90f777ff-608d-437e-b0d0-ef4c3e0f78b7.png?auth_key=1875083030-65026cc874174cbfaeac70e8303ae77d-0-8691bb9adbdeb68aac80e3fdaf0ebe8">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
@@ -74,7 +80,6 @@
     @keyframes pulse-gold {
       0%, 100% { box-shadow: 0 0 0 0 rgba(201,146,59,0.3); }
       50% { box-shadow: 0 0 24px 6px rgba(201,146,59,0.1); }
-    }
     @keyframes logoGlow {
       0%, 100% { filter: drop-shadow(0 0 20px rgba(201,146,59,0.15)); }
       50% { filter: drop-shadow(0 0 40px rgba(201,146,59,0.25)); }
@@ -185,7 +190,6 @@
   <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0" style="background: linear-gradient(to top, #181210 0%, rgba(24,18,16,0.92) 30%, rgba(24,18,16,0.75) 65%, rgba(24,18,16,0.6) 100%);"></div>
     <div class="absolute inset-0" style="background: radial-gradient(ellipse at 50% 50%, rgba(201,146,59,0.1) 0%, transparent 50%);"></div>
-    <!-- Bumped from 0.08 to 0.18 so plaid matches the rest of the page -->
     <div class="absolute inset-0" style="background-image: url('https://z-cdn-media.chatglm.cn/files/10f142ea-c6cc-4a32-baca-5b31707fc6ba.png?auth_key=1875076231-cd6a1eb4a2ac44a5a07e7d03d38f9d2f-0-61405928305ec4c24745f9ffc8ed5f4f'); background-size: 450px 450px; opacity: 0.18;"></div>
     <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, transparent 30%, rgba(24,18,16,0.5) 100%); pointer-events: none;"></div>
 
@@ -297,10 +301,9 @@
         <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-tight text-white mb-3">Need something forged?</h2>
         <p class="text-sm font-light text-white/80 max-w-md mx-auto">It's free. Just tell me what you're looking for and I'll make it happen.</p>
       </div>
-      <!-- CHANGE THIS: Replace YOUR.EMAIL@gmail.com with your real email -->
-      <form id="contactForm" class="scroll-reveal space-y-4" action="mailto alively14:gmail.com" method="POST" enctype="text/plain">
+      <form id="contactForm" class="scroll-reveal space-y-4">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <input type="text" required placeholder="Name" class="w-full border border-white/20 rounded-[4px] px-4 py-3 text-sm text-white placeholder-white/60 focus:outline-none focus:border-bb-green/40 transition-colors" style="background: #1e1b16;">
+          <input type="text" required placeholder="Name" class="w-full border border border-white/20 rounded-[4px] px-4 py-3 text-sm text-white placeholder-white/60 focus:outline-none focus:border-bb-green/40 transition-colors" style="background: #1e1b16;">
           <input type="email" required placeholder="Email" class="w-full border border-white/20 rounded-[4px] px-4 py-3 text-sm text-white placeholder-white/60 focus:outline-none focus:border-bb-green/40 transition-colors" style="background: #1e1b16;">
         </div>
         <select class="w-full border border-white/20 rounded-[4px] px-4 py-3 text-sm text-white/80 focus:outline-none focus:border-bb-green/40 transition-colors appearance-none cursor-pointer" style="background: #1e1b16; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2214%22 height=%2214%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22rgba(201,146,59,0.6)%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22/></svg>'); background-repeat: no-repeat; background-position: right 14px center;">
@@ -326,13 +329,9 @@
         </div>
         <span class="text-[11px] text-white/70">SunnySkyesS</span>
       </div>
-      <!-- SOCIAL LINKS: Replace the # with your actual URLs -->
-            <div class="flex items-center gap-5">
-        <!-- YOUTUBE: Replace # with your channel URL -->
+      <div class="flex items-center gap-5">
         <a href="https://www.youtube.com/@SunnySkyesS" target="_blank" class="text-white/60 hover:text-bb-green transition-colors" aria-label="YouTube"><span class="iconify" data-icon="lucide:youtube" data-width="15"></span></a>
-        <!-- GITHUB: Replace # with your profile URL -->
         <a href="https://github.com/sunnyskyess420" target="_blank" class="text-white/60 hover:text-bb-green transition-colors" aria-label="GitHub"><span class="iconify" data-icon="lucide:github" data-width="15"></span></a>
-        <!-- FACEBOOK: Replace # with your profile URL -->
         <a href="https://www.facebook.com/profile.php?id=61577366714227" target="_blank" class="text-white/60 hover:text-bb-green transition-colors" aria-label="Facebook"><span class="iconify" data-icon="lucide:facebook" data-width="15"></span></a>
       </div>
       <p class="text-[9px] tracking-wider text-white/60">© 2025 SunnySkyesS · Beaver Bank NS, sailing from Edmonton</p>
@@ -364,14 +363,11 @@
   </div>
 
   <script>
-    // ============================================
-    // CHANGE THIS: Put your real email below
-    // ============================================
     var SUNNYSKYES_EMAIL = 'alively14@gmail.com';
 
     function buildMail(form) {
       var name = form.querySelector('input[type="text"]').value;
-      var email = form.querySelector('input[type="email"]').value;
+      var email = form.querySelector('input[type="email]').value;
       var need = form.querySelector('select').value || 'General';
       var msg = form.querySelector('textarea').value;
       var subject = 'Signal from SunnySkyesS — ' + need;
@@ -420,6 +416,7 @@
               '<span class="text-[8px] tracking-[0.15em] uppercase font-medium" style="color: rgba(201,146,59,0.85);">' + img.label + '</span>' +
             '</div>' +
           '</div>' +
+        '</div>' +
         '</div>';
       }).join('');
       var wrap = document.getElementById('loadMoreWrap');
