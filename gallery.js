@@ -190,8 +190,7 @@ var GALLERY_IMAGES = [
 {id:"tcXRnPU",src:"https://i.imgur.com/tcXRnPUl.jpg",fullSrc:"https://i.imgur.com/tcXRnPU",category:"jb-sketches",label:"Jeremy Burke Sketches"},
 {id:"U6cP3qL",src:"https://i.imgur.com/U6cP3qLl.jpg",fullSrc:"https://i.imgur.com/U6cP3qL",category:"jb-sketches",label:"Jeremy Burke Sketches"},
 {id:"aa5ESSJ",src:"https://i.imgur.com/aa5ESSJl.jpg",fullSrc:"https://i.imgur.com/aa5ESSJ",category:"jb-sketches",label:"Jeremy Burke Sketches"},
-{id:"j5TsvXL",src:"https://i.imgur.com/j5TsvXLl.jpg",fullSrc:"https://i.imgur.com/j5TsvXL
-",category:"jb-sketches",label:"Jeremy Burke Sketches"},
+{id:"j5TsvXL",src:"https://i.imgur.com/j5TsvXLl.jpg",fullSrc:"https://i.imgur.com/j5TsvXL",category:"jb-sketches",label:"Jeremy Burke Sketches"},
 
 
 {id:"1jRFIri",src:"https://i.imgur.com/1jRFIril.jpg",fullSrc:"https://i.imgur.com/1jRFIri",category:"my-creations",label:"My Creations"},
