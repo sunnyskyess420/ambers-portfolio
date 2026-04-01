@@ -296,21 +296,22 @@
         <h2 class="font-serif text-2xl md:text-3xl font-semibold tracking-tight text-white mb-3">Need something forged?</h2>
         <p class="text-sm font-light text-white/65 max-w-md mx-auto">It's free. Just tell me what you're looking for and I'll make it happen.</p>
       </div>
-      <form id="contactForm" class="scroll-reveal space-y-4">
+      <!-- CHANGE THIS: Replace alively14@gmail.com with your real email -->
+      <form id="contactForm" class="scroll-reveal space-y-4" action="mailto:alively14@gmail.com" method="POST" enctype="text/plain">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <input type="text" required placeholder="Name" class="w-full border border-white/15 rounded-[4px] px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-bb-green/40 transition-colors" style="background: rgba(255,255,255,0.04);">
-          <input type="email" required placeholder="Email" class="w-full border border-white/15 rounded-[4px] px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-bb-green/40 transition-colors" style="background: rgba(255,255,255,0.04);">
+          <input type="text" required placeholder="Name" class="w-full border border-white/15 rounded-[4px] px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-bb-green/40 transition-colors" style="background: #1e1b16;">
+          <input type="email" required placeholder="Email" class="w-full border border-white/15 rounded-[4px] px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-bb-green/40 transition-colors" style="background: #1e1b16;">
         </div>
-        <select class="w-full border border-white/15 rounded-[4px] px-4 py-3 text-sm text-white/65 focus:outline-none focus:border-bb-green/40 transition-colors appearance-none cursor-pointer" style="background: rgba(255,255,255,0.04); background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2214%22 height=%2214%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22rgba(201,146,59,0.6)%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22/></svg>'); background-repeat: no-repeat; background-position: right 14px center;">
-          <option value="">What do you need?</option>
-          <option>AI Generated Image</option>
-          <option>Photo Editing</option>
-          <option>Something Creative</option>
-          <option>Something else</option>
+        <select class="w-full border border-white/15 rounded-[4px] px-4 py-3 text-sm text-white/65 focus:outline-none focus:border-bb-green/40 transition-colors appearance-none cursor-pointer" style="background: #1e1b16; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2214%22 height=%2214%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22rgba(201,146,59,0.6)%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22/></svg>'); background-repeat: no-repeat; background-position: right 14px center;">
+          <option value="" style="background: #1e1b16; color: rgba(255,255,255,0.4);">What do you need?</option>
+          <option style="background: #1e1b16; color: rgba(255,255,255,0.7);">AI Generated Image</option>
+          <option style="background: #1e1b16; color: rgba(255,255,255,0.7);">Photo Editing</option>
+          <option style="background: #1e1b16; color: rgba(255,255,255,0.7);">Something Creative</option>
+          <option style="background: #1e1b16; color: rgba(255,255,255,0.7);">Something else</option>
         </select>
-        <textarea required rows="5" placeholder="Tell me about your project..." class="w-full border border-white/15 rounded-[4px] px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-bb-green/40 transition-colors resize-none" style="background: rgba(255,255,255,0.04);"></textarea>
-        <button type="submit" class="w-full py-3 bg-bb-green text-black text-[11px] font-semibold tracking-widest uppercase rounded-[4px] hover:bg-bb-gold transition-colors duration-150">Send Signal</button>
-        <p class="text-[10px] text-white/50 text-center">I'll respond faster than a torrent finishes ☀️</p>
+        <textarea required rows="5" placeholder="Tell me about your project..." class="w-full border border-white/15 rounded-[4px] px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-bb-green/40 transition-colors resize-none" style="background: #1e1b16;"></textarea>
+        <button type="submit" class="w-full py-3 bg-bb-green text-black text-[11px] font-semibold tracking-widest uppercase rounded-[4px] hover:bg-bb-gold transition-colors duration-150" onclick="buildMail(this.form)">Send Signal</button>
+        <p class="text-[10px] text-white/50 text-center">Opens your email app — no signup needed ☀️</p>
       </form>
     </div>
   </section>
@@ -355,10 +356,25 @@
   <!-- Toast -->
   <div class="toast fixed bottom-5 right-5 z-[70] rounded-[4px] px-5 py-3 flex items-center gap-2.5" id="toast" style="background: #1e1b16; border: 1px solid rgba(201,146,59,0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
     <span class="iconify" data-icon="lucide:check-circle" data-width="16" style="color: #c9923b;"></span>
-    <span class="text-sm text-white/80">Signal sent — talk soon ☀️</span>
+    <span class="text-sm text-white/80">Opening your email app... ☀️</span>
   </div>
 
   <script>
+    // ============================================
+    // CHANGE THIS: Put your real email below
+    // ============================================
+    var SUNNYSKYES_EMAIL = 'alively14@gmail.com';
+
+    function buildMail(form) {
+      var name = form.querySelector('input[type="text"]').value;
+      var email = form.querySelector('input[type="email"]').value;
+      var need = form.querySelector('select').value || 'General';
+      var msg = form.querySelector('textarea').value;
+      var subject = 'Signal from SunnySkyesS — ' + need;
+      var body = 'Name: ' + name + '\nEmail: ' + email + '\nNeed: ' + need + '\n\n' + msg;
+      form.action = 'mailto:' + SUNNYSKYES_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    }
+
     const PER_PAGE = 24;
     let allImages = (typeof GALLERY_IMAGES !== 'undefined' && Array.isArray(GALLERY_IMAGES)) ? GALLERY_IMAGES : [];
     allImages = allImages.filter(function(i) { return i.category !== 'jb-sketches'; });
@@ -470,14 +486,6 @@
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.scroll-reveal').forEach(function(el) { ro.observe(el); });
-
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      var t = document.getElementById('toast');
-      t.classList.add('show');
-      e.target.reset();
-      setTimeout(function() { t.classList.remove('show'); }, 3500);
-    });
 
     if (allImages.length > 0) { updateCounts(); filteredImages = getFiltered('all'); renderGallery(); document.getElementById('masonry').classList.remove('hidden'); }
     else { document.getElementById('noDataState').classList.remove('hidden'); }
