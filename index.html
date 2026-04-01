@@ -80,6 +80,7 @@
     @keyframes pulse-gold {
       0%, 100% { box-shadow: 0 0 0 0 rgba(201,146,59,0.3); }
       50% { box-shadow: 0 0 24px 6px rgba(201,146,59,0.1); }
+    }
     @keyframes logoGlow {
       0%, 100% { filter: drop-shadow(0 0 20px rgba(201,146,59,0.15)); }
       50% { filter: drop-shadow(0 0 40px rgba(201,146,59,0.25)); }
@@ -303,7 +304,7 @@
       </div>
       <form id="contactForm" class="scroll-reveal space-y-4">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <input type="text" required placeholder="Name" class="w-full border border border-white/20 rounded-[4px] px-4 py-3 text-sm text-white placeholder-white/60 focus:outline-none focus:border-bb-green/40 transition-colors" style="background: #1e1b16;">
+          <input type="text" required placeholder="Name" class="w-full border border-white/20 rounded-[4px] px-4 py-3 text-sm text-white placeholder-white/60 focus:outline-none focus:border-bb-green/40 transition-colors" style="background: #1e1b16;">
           <input type="email" required placeholder="Email" class="w-full border border-white/20 rounded-[4px] px-4 py-3 text-sm text-white placeholder-white/60 focus:outline-none focus:border-bb-green/40 transition-colors" style="background: #1e1b16;">
         </div>
         <select class="w-full border border-white/20 rounded-[4px] px-4 py-3 text-sm text-white/80 focus:outline-none focus:border-bb-green/40 transition-colors appearance-none cursor-pointer" style="background: #1e1b16; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2214%22 height=%2214%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22rgba(201,146,59,0.6)%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22/></svg>'); background-repeat: no-repeat; background-position: right 14px center;">
@@ -314,7 +315,7 @@
           <option style="background: #1e1b16; color: rgba(255,255,255,0.85);">Something else</option>
         </select>
         <textarea required rows="5" placeholder="Tell me about your project..." class="w-full border border-white/20 rounded-[4px] px-4 py-3 text-sm text-white placeholder-white/60 focus:outline-none focus:border-bb-green/40 transition-colors resize-none" style="background: #1e1b16;"></textarea>
-        <button type="submit" class="w-full py-3 bg-bb-green text-black text-[11px] font-semibold tracking-widest uppercase rounded-[4px] hover:bg-bb-gold transition-colors duration-150" onclick="buildMail(this.form)">Send Signal</button>
+        <button type="submit" class="w-full py-3 bg-bb-green text-black text-[11px] font-semibold tracking-widest uppercase rounded-[4px] hover:bg-bb-gold transition-colors duration-150">Send Signal</button>
         <p class="text-[10px] text-white/65 text-center">Opens your email app — no signup needed ☀️</p>
       </form>
     </div>
@@ -365,46 +366,50 @@
   <script>
     var SUNNYSKYES_EMAIL = 'alively14@gmail.com';
 
-    function buildMail(form) {
-      var name = form.querySelector('input[type="text"]').value;
-      var email = form.querySelector('input[type="email]').value;
-      var need = form.querySelector('select').value || 'General';
-      var msg = form.querySelector('textarea').value;
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name = this.querySelector('input[type="text"]').value;
+      var email = this.querySelector('input[type="email"]').value;
+      var need = this.querySelector('select').value || 'General';
+      var msg = this.querySelector('textarea').value;
       var subject = 'Signal from SunnySkyesS — ' + need;
       var body = 'Name: ' + name + '\nEmail: ' + email + '\nNeed: ' + need + '\n\n' + msg;
-      form.action = 'mailto:' + SUNNYSKYES_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    }
+      window.location.href = 'mailto:' + SUNNYSKYES_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      var toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(function() { toast.classList.remove('show'); }, 3000);
+    });
 
-    const PER_PAGE = 24;
-    let allImages = (typeof GALLERY_IMAGES !== 'undefined' && Array.isArray(GALLERY_IMAGES)) ? GALLERY_IMAGES : [];
+    var PER_PAGE = 24;
+    var allImages = (typeof GALLERY_IMAGES !== 'undefined' && Array.isArray(GALLERY_IMAGES)) ? GALLERY_IMAGES : [];
     allImages = allImages.filter(function(i) { return i.category !== 'jb-sketches'; });
-    let filteredImages = [];
-    let visibleCount = PER_PAGE;
-    let currentCategory = 'all';
+    var filteredImages = [];
+    var visibleCount = PER_PAGE;
+    var currentCategory = 'all';
 
-    function getFiltered(cat) { return cat === 'all' ? allImages : allImages.filter(i => i.category === cat); }
+    function getFiltered(cat) { return cat === 'all' ? allImages : allImages.filter(function(i) { return i.category === cat; }); }
 
     function updateCounts() {
       document.getElementById('countAll').textContent = '(' + allImages.length + ')';
-      document.getElementById('countAiArt').textContent = '(' + allImages.filter(i => i.category === 'ai-art').length + ')';
-      document.getElementById('countArtwork').textContent = '(' + allImages.filter(i => i.category === 'artwork').length + ')';
-      document.getElementById('countMyCreations').textContent = '(' + allImages.filter(i => i.category === 'my-creations').length + ')';
-      document.getElementById('countPhotography').textContent = '(' + allImages.filter(i => i.category === 'photography').length + ')';
+      document.getElementById('countAiArt').textContent = '(' + allImages.filter(function(i) { return i.category === 'ai-art'; }).length + ')';
+      document.getElementById('countArtwork').textContent = '(' + allImages.filter(function(i) { return i.category === 'artwork'; }).length + ')';
+      document.getElementById('countMyCreations').textContent = '(' + allImages.filter(function(i) { return i.category === 'my-creations'; }).length + ')';
+      document.getElementById('countPhotography').textContent = '(' + allImages.filter(function(i) { return i.category === 'photography'; }).length + ')';
     }
 
     function filterCat(cat) {
       currentCategory = cat;
       visibleCount = PER_PAGE;
       filteredImages = getFiltered(cat);
-      document.querySelectorAll('.cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+      document.querySelectorAll('.cat-btn').forEach(function(b) { b.classList.toggle('active', b.dataset.cat === cat); });
       renderGallery();
       window.scrollTo({ top: document.getElementById('work').offsetTop - 80, behavior: 'smooth' });
     }
 
     function renderGallery() {
-      const grid = document.getElementById('masonry');
-      const toShow = filteredImages.slice(0, visibleCount);
-      const total = filteredImages.length;
+      var grid = document.getElementById('masonry');
+      var toShow = filteredImages.slice(0, visibleCount);
+      var total = filteredImages.length;
       document.getElementById('showingCount').textContent = total === 0 ? 'Nothing in this chest' : 'Showing ' + toShow.length + ' of ' + total;
       document.getElementById('emptyState').classList.toggle('hidden', total > 0);
       grid.classList.toggle('hidden', total === 0);
@@ -416,7 +421,6 @@
               '<span class="text-[8px] tracking-[0.15em] uppercase font-medium" style="color: rgba(201,146,59,0.85);">' + img.label + '</span>' +
             '</div>' +
           '</div>' +
-        '</div>' +
         '</div>';
       }).join('');
       var wrap = document.getElementById('loadMoreWrap');
