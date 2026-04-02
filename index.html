@@ -480,10 +480,14 @@
     function updLB() {
       var img = filteredImages[lbCur];
       if (!img) return;
-      document.getElementById('lbImg').src = img.fullSrc || img.src;
+      var src = img.fullSrc || img.src;
+      if (src && !src.match(/\.(jpg|jpeg|png|gif|webp|svg)$/i)) {
+        src += '.jpg';
+      }
+      document.getElementById('lbImg').src = src;
       document.getElementById('lbCat').textContent = img.label;
       document.getElementById('lbCounter').textContent = (lbCur + 1) + ' / ' + filteredImages.length;
-    }
+}
     document.addEventListener('keydown', function(e) {
       if (!document.getElementById('lightbox').classList.contains('active')) return;
       if (e.key === 'Escape') closeLB();
