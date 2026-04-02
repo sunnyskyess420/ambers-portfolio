@@ -304,20 +304,21 @@
         <p class="text-sm font-light text-white/80 max-w-md mx-auto">It's free. Just tell me what you're looking for and I'll make it happen.</p>
       </div>
       <form id="contactForm" class="scroll-reveal space-y-4">
+        <input type="hidden" name="_subject" value="Signal from SunnySkyesS">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <input type="text" required placeholder="Name" class="w-full border border-white/20 rounded-[4px] px-4 py-3 text-sm text-white placeholder-white/60 focus:outline-none focus:border-bb-green/40 transition-colors" style="background: #1e1b16;">
-          <input type="email" required placeholder="Email" class="w-full border border-white/20 rounded-[4px] px-4 py-3 text-sm text-white placeholder-white/60 focus:outline-none focus:border-bb-green/40 transition-colors" style="background: #1e1b16;">
+          <input type="text" name="name" required placeholder="Name" class="w-full border border-white/20 rounded-[4px] px-4 py-3 text-sm text-white placeholder-white/60 focus:outline-none focus:border-bb-green/40 transition-colors" style="background: #1e1b16;">
+          <input type="email" name="email" required placeholder="Email" class="w-full border border-white/20 rounded-[4px] px-4 py-3 text-sm text-white placeholder-white/60 focus:outline-none focus:border-bb-green/40 transition-colors" style="background: #1e1b16;">
         </div>
-        <select class="w-full border border-white/20 rounded-[4px] px-4 py-3 text-sm text-white/80 focus:outline-none focus:border-bb-green/40 transition-colors appearance-none cursor-pointer" style="background: #1e1b16; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2214%22 height=%2214%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22rgba(201,146,59,0.6)%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22/></svg>'); background-repeat: no-repeat; background-position: right 14px center;">
+        <select name="need" class="w-full border border-white/20 rounded-[4px] px-4 py-3 text-sm text-white/80 focus:outline-none focus:border-bb-green/40 transition-colors appearance-none cursor-pointer" style="background: #1e1b16; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2214%22 height=%2214%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22rgba(201,146,59,0.6)%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22/></svg>'); background-repeat: no-repeat; background-position: right 14px center;">
           <option value="" style="background: #1e1b16; color: rgba(255,255,255,0.5);">What do you need?</option>
           <option style="background: #1e1b16; color: rgba(255,255,255,0.85);">AI Generated Image</option>
           <option style="background: #1e1b16; color: rgba(255,255,255,0.85);">Photo Editing</option>
           <option style="background: #1e1b16; color: rgba(255,255,255,0.85);">Something Creative</option>
           <option style="background: #1e1b16; color: rgba(255,255,255,0.85);">Something else</option>
         </select>
-        <textarea required rows="5" placeholder="Tell me about your project..." class="w-full border border-white/20 rounded-[4px] px-4 py-3 text-sm text-white placeholder-white/60 focus:outline-none focus:border-bb-green/40 transition-colors resize-none" style="background: #1e1b16;"></textarea>
-        <button type="submit" class="w-full py-3 bg-bb-green text-black text-[11px] font-semibold tracking-widest uppercase rounded-[4px] hover:bg-bb-gold transition-colors duration-150">Send Signal</button>
-        <p class="text-[10px] text-white/65 text-center">Opens your email app — no signup needed ☀️</p>
+        <textarea name="message" required rows="5" placeholder="Tell me about your project..." class="w-full border border-white/20 rounded-[4px] px-4 py-3 text-sm text-white placeholder-white/60 focus:outline-none focus:border-bb-green/40 transition-colors resize-none" style="background: #1e1b16;"></textarea>
+        <button type="submit" id="submitBtn" class="w-full py-3 bg-bb-green text-black text-[11px] font-semibold tracking-widest uppercase rounded-[4px] hover:bg-bb-gold transition-colors duration-150">Send Signal</button>
+        <p class="text-[10px] text-white/65 text-center">Sent directly — no email app needed ☀️</p>
       </form>
     </div>
   </section>
@@ -360,30 +361,56 @@
 
   <!-- Toast -->
   <div class="toast fixed bottom-5 right-5 z-[70] rounded-[4px] px-5 py-3 flex items-center gap-2.5" id="toast" style="background: #1e1b16; border: 1px solid rgba(201,146,59,0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
-    <span class="iconify" data-icon="lucide:check-circle" data-width="16" style="color: #c9923b;"></span>
-    <span class="text-sm text-white/90">Opening your email app... ☀️</span>
+    <span class="iconify toast-icon" data-icon="lucide:check-circle" data-width="16" style="color: #c9923b;"></span>
+    <span class="text-sm toast-msg text-white/90">Signal sent! ☀️</span>
   </div>
 
   <script>
-    var SUNNYSKYES_EMAIL = 'alively14@gmail.com';
+    var FORMSPREE_ID = 'xwvwqdjq';
+
+    function showToast(msg, isError) {
+      var toast = document.getElementById('toast');
+      var icon = toast.querySelector('.toast-icon');
+      var text = toast.querySelector('.toast-msg');
+      text.textContent = msg;
+      icon.setAttribute('data-icon', isError ? 'lucide:alert-circle' : 'lucide:check-circle');
+      icon.style.color = isError ? '#8b3a2c' : '#c9923b';
+      toast.style.borderColor = isError ? 'rgba(139,58,44,0.3)' : 'rgba(201,146,59,0.2)';
+      toast.classList.add('show');
+      setTimeout(function() { toast.classList.remove('show'); }, 3500);
+    }
 
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      var name = this.querySelector('input[type="text"]').value;
-      var email = this.querySelector('input[type="email"]').value;
-      var need = this.querySelector('select').value || 'General';
-      var msg = this.querySelector('textarea').value;
-      var subject = 'Signal from SunnySkyesS — ' + need;
-      var body = 'Name: ' + name + '\nEmail: ' + email + '\nNeed: ' + need + '\n\n' + msg;
-      var a = document.createElement('a');
-      a.href = 'mailto:' + SUNNYSKYES_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-      a.style.display = 'none';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      var toast = document.getElementById('toast');
-      toast.classList.add('show');
-      setTimeout(function() { toast.classList.remove('show'); }, 3000);
+      var btn = document.getElementById('submitBtn');
+      var origText = btn.textContent;
+
+      btn.textContent = 'SENDING...';
+      btn.disabled = true;
+      btn.style.opacity = '0.6';
+
+      var data = new FormData(this);
+
+      fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        if (response.ok) {
+          showToast('Signal sent! I\'ll get back to you soon ☀️', false);
+          document.getElementById('contactForm').reset();
+        } else {
+          return response.json().then(function(err) {
+            throw new Error(err.error || 'Something went wrong');
+          });
+        }
+      }).catch(function(err) {
+        showToast('Failed to send — ' + err.message, true);
+      }).finally(function() {
+        btn.textContent = origText;
+        btn.disabled = false;
+        btn.style.opacity = '1';
+      });
     });
 
     var PER_PAGE = 24;
