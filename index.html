@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#181210">
   <title>SunnySkyesS — Digital Buccaneer</title>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=2">
   <link rel="apple-touch-icon" sizes="180x180" href="favicon.png?v=2">
@@ -10,7 +11,6 @@
   <meta property="og:title" content="SunnySkyesS — Digital Buccaneer">
   <meta property="og:description" content="Free AI art, Photoshop wizardry, and photo editing. Plundering pixels since day one.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://z-cdn-media.chatglm.cn/files/90f777ff-608d-437e-b0d0-ef4c3e0f78b7.png?auth_key=1875083030-65026cc874174cbfaeac70e8303ae77d-0-8691bb9adbdeb68aac80e3fdaf0ebe8">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
@@ -59,7 +59,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background-image: url('https://z-cdn-media.chatglm.cn/files/10f142ea-c6cc-4a32-baca-5b31707fc6ba.png?auth_key=1875076231-cd6a1eb4a2ac44a5a07e7d03d38f9d2f-0-61405928305ec4c24745f9ffc8ed5f4f');
+      background-image: url('texture.png');
       background-size: 350px 350px;
       opacity: 0.15;
       pointer-events: none;
@@ -192,14 +192,14 @@
   <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0" style="background: linear-gradient(to top, #181210 0%, rgba(24,18,16,0.92) 30%, rgba(24,18,16,0.75) 65%, rgba(24,18,16,0.6) 100%);"></div>
     <div class="absolute inset-0" style="background: radial-gradient(ellipse at 50% 50%, rgba(201,146,59,0.1) 0%, transparent 50%);"></div>
-    <div class="absolute inset-0" style="background-image: url('https://z-cdn-media.chatglm.cn/files/10f142ea-c6cc-4a32-baca-5b31707fc6ba.png?auth_key=1875076231-cd6a1eb4a2ac44a5a07e7d03d38f9d2f-0-61405928305ec4c24745f9ffc8ed5f4f'); background-size: 450px 450px; opacity: 0.18;"></div>
+    <div class="absolute inset-0" style="background-image: url('texture.png'); background-size: 450px 450px; opacity: 0.18;"></div>
     <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, transparent 30%, rgba(24,18,16,0.5) 100%); pointer-events: none;"></div>
 
     <div class="relative z-10 text-center px-6">
       <p class="anim text-[11px] font-medium tracking-[0.3em] uppercase text-white mb-8 border border-white/20 px-5 py-1.5 rounded-full bg-black/30 backdrop-blur-sm">Beaver Banker · Digital Pirate · PS Wizard</p>
 
       <div class="anim d1 mb-8">
-        <img src="https://z-cdn-media.chatglm.cn/files/e6b1a59b-9a09-4ec7-816f-d124ec8b8b05.png?auth_key=1875068642-2e33152d14ee4e21b02ca121d418fbd2-0-20f216a430ada070ee63e225be49a46b" alt="SunnySkyesS Logo" class="mx-auto max-w-xs sm:max-w-sm md:max-w-md logo-glow rounded-lg">
+        <img src="logo.png" alt="SunnySkyesS Logo" class="mx-auto max-w-xs sm:max-w-sm md:max-w-md logo-glow rounded-lg">
       </div>
 
       <p class="anim d2 text-base md:text-lg font-light text-white/85 max-w-lg mx-auto leading-relaxed">
@@ -479,7 +479,7 @@
     function updLB() {
       var img = filteredImages[lbCur];
       if (!img) return;
-      document.getElementById('lbImg').src = img.fullSrc;
+      document.getElementById('lbImg').src = img.fullSrc || img.src;
       document.getElementById('lbCat').textContent = img.label;
       document.getElementById('lbCounter').textContent = (lbCur + 1) + ' / ' + filteredImages.length;
     }
