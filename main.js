@@ -103,37 +103,12 @@ allImages = allImages.filter(function(i) { return i.category !== 'jb-sketches'; 
 var filteredImages = [];
 var visibleCount = PER_PAGE;
 var currentCategory = 'my-creations';
-var searchQuery = '';
 
-function getFiltered(cat, query) {
-  var result = cat === 'all' ? allImages : allImages.filter(function(i) { return i.category === cat; });
-  if (query && query.trim()) {
-    var q = query.toLowerCase();
-    result = result.filter(function(i) {
-      var searchText = [
-        i.label,
-        i.alt,
-        i.id,
-        (i.tags || []).join(' ')
-      ].join(' ').toLowerCase();
-      return searchText.includes(q);
-    });
-  }
-  return result;
+function getFiltered(cat) {
+  return cat === 'all' ? allImages : allImages.filter(function(i) { return i.category === cat; });
 }
 
-var searchTimeout;
-document.getElementById('searchInput').addEventListener('input', function(e) {
-  clearTimeout(searchTimeout);
-  searchTimeout = setTimeout(function() {
-    searchQuery = e.target.value;
-    filteredImages = getFiltered(currentCategory, searchQuery);
-    visibleCount = PER_PAGE;
-    renderGallery();
-  }, 150);
-});
-
-function updateCounts() {
+function filterCat(cat) {
   document.getElementById('countAll').textContent = '(' + allImages.length + ')';
   document.getElementById('countAiArt').textContent = '(' + allImages.filter(function(i) { return i.category === 'ai-art'; }).length + ')';
   document.getElementById('countArtwork').textContent = '(' + allImages.filter(function(i) { return i.category === 'artwork'; }).length + ')';
@@ -144,7 +119,7 @@ function updateCounts() {
 function filterCat(cat) {
   currentCategory = cat;
   visibleCount = PER_PAGE;
-  filteredImages = getFiltered(cat, searchQuery);
+  filteredImages = getFiltered(cat);
   document.querySelectorAll('.cat-btn').forEach(function(b) { b.classList.toggle('active', b.dataset.cat === cat); });
   renderGallery();
   window.scrollTo({ top: document.getElementById('work').offsetTop - 80, behavior: 'smooth' });
@@ -402,7 +377,7 @@ try {
   if (allImages.length > 0) {
     console.log('Initializing gallery with', allImages.length, 'images');
     updateCounts();
-    filteredImages = getFiltered('my-creations', searchQuery);
+    filteredImages = getFiltered('my-creations');
     console.log('Filtered images:', filteredImages.length);
     renderGallery();
     console.log('Gallery rendered successfully - horizontal scroll active');
