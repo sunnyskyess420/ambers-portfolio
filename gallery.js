@@ -1,5 +1,4 @@
 var GALLERY_IMAGES = [
-
 {id:"5TAsh3h",src:"https://i.imgur.com/5TAsh3hl.jpg",fullSrc:"https://i.imgur.com/5TAsh3h",category:"ai-art",label:"AI Art",alt:"Fantasy pirate ship sailing through golden sunset waters",tags:["pirate","ship","ocean","sunset","fantasy","gold","sea","sailing","digital art"]},
 {id:"i1OAsJR",src:"https://i.imgur.com/i1OAsJRl.jpg",fullSrc:"https://i.imgur.com/i1OAsJR",category:"ai-art",label:"AI Art",alt:"Mystical digital artwork with ethereal lighting effects",tags:["mystical","ethereal","lighting","glow","abstract","magic","dark","purple","dreamy"]},
 {id:"UGitYNB",src:"https://i.imgur.com/UGitYNBl.jpg",fullSrc:"https://i.imgur.com/UGitYNB",category:"ai-art",label:"AI Art",alt:"Abstract AI generated landscape with vibrant colors",tags:["abstract","landscape","vibrant","colors","nature","mountains","sky","purple","pink","digital"]},
@@ -535,6 +534,6 @@ var GALLERY_IMAGES = [
 {id:"8iyzhSi",src:"https://i.imgur.com/8iyzhSil.jpg",fullSrc:"https://i.imgur.com/8iyzhSi",category:"photography",label:"Photography"},
 {id:"xhfPXVA",src:"https://i.imgur.com/xhfPXVAl.jpg",fullSrc:"https://i.imgur.com/xhfPXVA",category:"photography",label:"Photography"},
 {id:"qh27WJ6",src:"https://i.imgur.com/qh27WJ6l.jpg",fullSrc:"https://i.imgur.com/qh27WJ6",category:"photography",label:"Photography"},
-{id:"NWfjDkG",src:"https://i.imgur.com/NWfjDkGl.jpg",fullSrc:"https://i.imgur.com/NWfjDkG",category:"photography",label:"Photography"},
-
+{id:"NWfjDkG",src:"https://i.imgur.com/NWfjDkGl.jpg",fullSrc:"https://i.imgur.com/NWfjDkG",category:"photography",label:"Photography"}
 ];
+// Updated 05/20/2026 23:28:04
