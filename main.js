@@ -108,7 +108,7 @@ function getFiltered(cat) {
   return cat === 'all' ? allImages : allImages.filter(function(i) { return i.category === cat; });
 }
 
-function filterCat(cat) {
+function updateCounts() {
   document.getElementById('countAll').textContent = '(' + allImages.length + ')';
   document.getElementById('countAiArt').textContent = '(' + allImages.filter(function(i) { return i.category === 'ai-art'; }).length + ')';
   document.getElementById('countArtwork').textContent = '(' + allImages.filter(function(i) { return i.category === 'artwork'; }).length + ')';
